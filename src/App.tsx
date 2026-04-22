@@ -185,7 +185,7 @@ const ScrollingPhotos = () => (
             <img 
               src={`/foto${num}.png`} 
               alt="Review" 
-              className="w-full h-full object-cover" // REMOVIDO O GRAYSCALE AQUI
+              className="w-full h-full object-cover" 
             />
           </div>
         </div>
@@ -201,10 +201,29 @@ const TargetAudience = () => (
       <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5 hover:bg-zinc-900 transition-colors">
         <h3 className="text-red-500 font-black text-xl mb-2 uppercase">Estudantes do 2° Período</h3>
         <p className="text-zinc-300 italic font-medium leading-relaxed">
-          Para quem quer entender a lógica das disciplinas e não quer apenas decorar para a prova.
+          Que querem dar continuida ao estudo com mais segurança.
         </p>
       </div>
-      {/* Repita o padrão acima para os outros itens, trocando o texto */}
+
+      <section className="py-24 px-4 flex flex-col items-center bg-black">
+    <SectionTitle title="Para quem é esse combo?" subtitle="Identifique sua fase e veja como podemos acelerar seu aprendizado." />
+    <div className="max-w-3xl w-full space-y-6">
+      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5 hover:bg-zinc-900 transition-colors">
+        <h3 className="text-red-500 font-black text-xl mb-2 uppercase">Calouros de Direito</h3>
+        <p className="text-zinc-300 italic font-medium leading-relaxed">
+          Ainda não entendem as regras básicas e se sentem perdidos nos primeiros dias.
+        </p>
+      </div>
+
+      <section className="py-24 px-4 flex flex-col items-center bg-black">
+    <SectionTitle title="Para quem é esse combo?" subtitle="Identifique sua fase e veja como podemos acelerar seu aprendizado." />
+    <div className="max-w-3xl w-full space-y-6">
+      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5 hover:bg-zinc-900 transition-colors">
+        <h3 className="text-red-500 font-black text-xl mb-2 uppercase">Veteranos de Revisão</h3>
+        <p className="text-zinc-300 italic font-medium leading-relaxed">
+          Que precisam revisar o conteúdo inicial com precisão e lógica.
+        </p>
+      </div>
     </div>
   </section>
 );
