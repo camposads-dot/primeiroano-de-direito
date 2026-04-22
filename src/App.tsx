@@ -97,7 +97,7 @@ const Hero = () => (
     <div className="flex-1 flex items-center px-4 md:px-8">
       <div className="container mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
 
-        {/* TEXTO ESQUERDA */}
+        {/* TEXTO */}
         <div>
           <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6">
             PARE DE SE <span className="text-red-500">PERDER</span> NO DIREITO.
@@ -114,27 +114,34 @@ const Hero = () => (
 
           {/* AVATARES */}
           <div className="flex items-center gap-3 mb-6">
+
+            {/* FOTOS */}
             <div className="flex -space-x-2">
               {[
-  "https://i.pravatar.cc/100?img=12",
-  "https://i.pravatar.cc/100?img=32",
-  "https://i.pravatar.cc/100?img=45",
-  "https://i.pravatar.cc/100?img=56"
-].map((src, i) => (
+                "https://i.pravatar.cc/100?img=12",
+                "https://i.pravatar.cc/100?img=32",
+                "https://i.pravatar.cc/100?img=45",
+                "https://i.pravatar.cc/100?img=56"
+              ].map((src, i) => (
                 <img
-  key={i}
-  src={src}
-  className="w-10 h-10 rounded-full border-2 border-black shadow-md object-cover"
-/>
+                  key={i}
+                  src={src}
+                  className="w-10 h-10 rounded-full border-2 border-black shadow-md object-cover"
+                />
               ))}
+            </div>
+
+            {/* TEXTO */}
             <div className="flex flex-col leading-tight">
-  <span className="text-xs text-zinc-400 font-semibold">
-    +400 alunos
-  </span>
-  <span className="text-[10px] text-zinc-500 uppercase">
-    método testado
-  </span>
-</div>
+              <span className="text-xs text-zinc-400 font-semibold">
+                +400 alunos
+              </span>
+              <span className="text-[10px] text-zinc-500 uppercase">
+                método testado
+              </span>
+            </div>
+
+          </div>
 
           {/* PREÇO */}
           <div className="p-4 bg-zinc-900/50 border border-white/5 rounded-xl flex items-center justify-between max-w-sm">
@@ -147,12 +154,12 @@ const Hero = () => (
           </div>
         </div>
 
-        {/* VÍDEO DIREITA */}
+        {/* VÍDEO */}
         <div className="w-full">
           <div className="aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl">
             <iframe
               className="w-full h-full"
-              src="https://youtu.be/PbOzmQFBgU8?si=c8ymorxtK93UOHpN"
+              src="https://www.youtube.com/embed/PbOzmQFBgU8"
               title="YouTube video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
