@@ -4,6 +4,8 @@
  */
 
 import { motion } from 'motion/react';
+import ebook1 from '../public/ebook1.png';
+import ebook2 from '../public/ebook2.png';
 import { 
   CheckCircle2, 
   ChevronRight, 
