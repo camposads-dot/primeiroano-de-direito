@@ -107,49 +107,80 @@ const Hero = () => (
 );
 
 const Solution = () => {
-  const [activeTab, setActiveTab] = useState<'ebook1' | 'ebook2'>('ebook1');
+  // Estado para controlar qual E-book está selecionado
+  const [activeTab, setActiveTab] = React.useState(1);
 
   return (
-    <section className="py-24 px-4 bg-black text-white border-y border-white/5">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8">O QUE MUDA NO SEU <span className="text-red-600">ESTUDO?</span></h2>
-          <div className="flex p-1 bg-zinc-900 rounded-2xl w-fit mx-auto border border-white/10">
-            <button 
-              onClick={() => setActiveTab('ebook1')}
-              className={`px-10 py-4 rounded-xl font-black uppercase text-xs transition-all ${activeTab === 'ebook1' ? 'bg-red-600 text-white' : 'text-zinc-500'}`}
-            >
-              E-book 01
-            </button>
-            <button 
-              onClick={() => setActiveTab('ebook2')}
-              className={`px-10 py-4 rounded-xl font-black uppercase text-xs transition-all ${activeTab === 'ebook2' ? 'bg-red-600 text-white' : 'text-zinc-500'}`}
-            >
-              E-book 02
-            </button>
-          </div>
+    <section className="flex flex-col items-center gap-6 py-10">
+      {/* SELETOR DE E-BOOK */}
+      <div className="flex gap-4">
+        <button 
+          onClick={() => setActiveTab(1)}
+          className={`px-6 py-2 rounded-lg font-bold transition ${activeTab === 1 ? 'bg-red-600 text-white' : 'bg-gray-800 text-gray-400'}`}
+        >
+          E-BOOK 01
+        </button>
+        <button 
+          onClick={() => setActiveTab(2)}
+          className={`px-6 py-2 rounded-lg font-bold transition ${activeTab === 2 ? 'bg-red-600 text-white' : 'bg-gray-800 text-gray-400'}`}
+        >
+          E-BOOK 02
+        </button>
+      </div>
+
+      {/* CONTEÚDO DINÂMICO */}
+      <div className="flex flex-col items-center max-w-md w-full px-4">
+        
+        {/* IMAGEM MENOR (ACIMA) */}
+        <div className="w-32 md:w-40 aspect-[3/4] mb-6 shadow-2xl">
+          <img 
+            src={activeTab === 1 ? "/ebook1.png" : "/ebook2.png"} 
+            alt="Capa Ebook" 
+            className="w-full h-full object-cover rounded-xl"
+          />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <div className="flex gap-4 p-6 bg-zinc-900/50 rounded-2xl border border-white/5 italic">
-              <CheckCircle2 size={24} className="text-red-600 shrink-0" />
-              <p className="font-bold text-zinc-300">Acesso a uma sequência lógica que prioriza o entendimento sem complicação.</p>
+        {/* LEGENDAS/BENEFÍCIOS (ABAIXO) */}
+        <div className="space-y-4 w-full">
+          {activeTab === 1 ? (
+            <>
+              <div className="flex items-start gap-3 bg-gray-900/50 p-4 rounded-xl border border-gray-800">
+                <div className="text-red-600 mt-1">✔</div>
+                <p className="text-sm text-gray-200 leading-relaxed">
+                  Acesso a uma sequência lógica que prioriza o entendimento sem complicação.
+                </p>
+              </div>
+              <div className="flex items-start gap-3 bg-gray-900/50 p-4 rounded-xl border border-gray-800">
+                <div className="text-red-600 mt-1">✔</div>
+                <p className="text-sm text-gray-200 leading-relaxed">
+                  Clareza e segurança para acompanhar a faculdade com autoridade.
+                </p>
+              </div>
+            </>
+          ) : (
+            <div className="bg-gray-900/50 p-4 rounded-xl border border-gray-800">
+              <ul className="grid grid-cols-1 gap-2">
+                {[
+                  "Esquemas Simplificados",
+                  "Exemplos Práticos",
+                  "Associação com o Código",
+                  "Espaço para anotações",
+                  "Plano de Estudo incluso",
+                  "Simulado de prova no final de cada disciplina"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center gap-3 text-xs text-gray-300">
+                    <span className="text-red-600 text-lg">•</span> {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="flex gap-4 p-6 bg-zinc-900/50 rounded-2xl border border-white/5 italic">
-              <CheckCircle2 size={24} className="text-red-600 shrink-0" />
-              <p className="font-bold text-zinc-300">Clareza e segurança para acompanhar a faculdade com autoridade.</p>
-            </div>
-          </div>
-          <div className="flex justify-center relative">
-            <div className="w-64 aspect-[3/4] bg-zinc-800 rounded-2xl shadow-2xl overflow-hidden border border-white/10 rotate-[-5deg] relative z-20">
-              <img src={activeTab === 'ebook1' ? "/ebook1.png" : "/ebook2.png"} className="w-full h-full object-cover" />
-            </div>
-            <div className="w-64 aspect-[3/4] bg-zinc-800 rounded-2xl shadow-2xl overflow-hidden border border-white/10 rotate-[5deg] absolute opacity-30">
-               <img src={activeTab === 'ebook1' ? "/ebook2.png" : "/ebook1.png"} className="w-full h-full object-cover" />
-            </div>
-          </div>
+          )}
         </div>
+
+        {/* BOTÃO DE AÇÃO */}
+        <button className="mt-8 w-full bg-yellow-500 hover:bg-yellow-400 text-black font-black py-4 rounded-xl uppercase tracking-tighter text-lg transition-transform active:scale-95 shadow-[0_0_20px_rgba(234,179,8,0.3)]">
+          Garantir Combo Agora
+        </button>
       </div>
     </section>
   );
