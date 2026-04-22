@@ -159,7 +159,7 @@ const Hero = () => (
           <div className="aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/PbOzmQFBgU8?si=c8ymorxtK93UOHpN"
+              src="https://www.youtube.com/embed/PbOzmQFBgU8"
               title="YouTube video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -203,44 +203,95 @@ const Solution = () => (
   <section className="py-16 px-4 relative overflow-hidden">
     <div className="container mx-auto max-w-6xl">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+        {/* TEXTO */}
         <motion.div
-           initial={{ opacity: 0, x: -30 }}
-           whileInView={{ opacity: 1, x: 0 }}
-           viewport={{ once: true }}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
         >
           <header className="mb-6">
-            <h3 className="text-brand-red text-xs font-bold uppercase tracking-widest mb-2">A Solução Definitive</h3>
-            <h2 className="text-3xl md:text-5xl font-black leading-tight uppercase mb-4 tracking-tighter">Oque muda no seu estudo?</h2>
+            <h3 className="text-brand-red text-xs font-bold uppercase tracking-widest mb-2">
+              A Solução Definitiva
+            </h3>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight uppercase mb-4 tracking-tighter">
+              O que muda no seu estudo?
+            </h2>
           </header>
+
           <div className="space-y-4 text-zinc-400 font-medium">
             <div className="flex gap-3">
-              <CheckCircle2 size={18} className="text-brand-red flex-shrink-0 mt-0.5" />
-              <p className="text-base">Acesso a uma sequência lógica que prioriza o entendimento sem complicação.</p>
+              <CheckCircle2 size={18} className="text-brand-red mt-0.5" />
+              <p>Acesso a uma sequência lógica sem complicação.</p>
             </div>
+
             <div className="flex gap-3">
-              <CheckCircle2 size={18} className="text-brand-red flex-shrink-0 mt-0.5" />
-              <p className="text-base">Clareza e segurança para acompanhar a faculdade com autoridade.</p>
+              <CheckCircle2 size={18} className="text-brand-red mt-0.5" />
+              <p>Clareza e segurança para acompanhar a faculdade.</p>
             </div>
           </div>
         </motion.div>
 
+        {/* IMAGENS + VÍDEOS */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="relative flex justify-center"
+          className="flex flex-col items-center gap-6"
         >
-           <div className="flex -space-x-8 md:-space-x-12">
-             {[1, 2].map(i => (
-               <div key={i} className={`w-40 md:w-56 aspect-[3/4] bg-zinc-900 rounded-xl border border-white/10 shadow-2xl overflow-hidden relative ${i === 2 ? 'z-10 mt-6' : ''}`}>
-                 <img src={`https://picsum.photos/seed/legal${i}/400/600`} className="w-full h-full object-cover opacity-60" referrerPolicy="no-referrer" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-                 <div className="absolute bottom-3 left-3 right-3">
-                   <p className="text-[10px] font-black italic uppercase text-brand-red">E-book #{i}</p>
-                 </div>
-               </div>
-             ))}
-           </div>
+
+          {/* IMAGENS (ESTILO ORIGINAL) */}
+          <div className="flex -space-x-8 md:-space-x-12">
+            
+            {/* EBOOK 1 */}
+            <div className="w-40 md:w-56 aspect-[3/4] rounded-xl overflow-hidden border border-white/10 shadow-2xl relative">
+              <img
+                src="/ebook1.png"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+              <p className="absolute bottom-3 left-3 text-[10px] font-black text-red-500 uppercase">
+                E-book 01
+              </p>
+            </div>
+
+            {/* EBOOK 2 */}
+            <div className="w-40 md:w-56 aspect-[3/4] rounded-xl overflow-hidden border border-white/10 shadow-2xl relative mt-6 z-10">
+              <img
+                src="/ebook2.png"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+              <p className="absolute bottom-3 left-3 text-[10px] font-black text-red-500 uppercase">
+                E-book 02
+              </p>
+            </div>
+
+          </div>
+
+          {/* VÍDEOS */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-xl">
+
+            {/* VIDEO 1 */}
+            <div className="aspect-video rounded-lg overflow-hidden border border-white/10">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/VIDEO1"
+                allowFullScreen
+              />
+            </div>
+
+            {/* VIDEO 2 */}
+            <div className="aspect-video rounded-lg overflow-hidden border border-white/10">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/VIDEO2"
+                allowFullScreen
+              />
+            </div>
+
+          </div>
+
         </motion.div>
       </div>
     </div>
