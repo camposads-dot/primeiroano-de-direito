@@ -125,8 +125,8 @@ const Solution = () => {
           </button>
         </div>
 
-        {/* IMAGEM MENOR (ACIMA) */}
-        <div className="w-48 md:w-64 aspect-[3/4] rounded-xl overflow-hidden relative shadow-2xl">
+        {/* IMAGEM (Aumentada conforme pedido) */}
+        <div className="w-56 md:w-72 aspect-[3/4] rounded-xl overflow-hidden relative shadow-2xl mb-8">
            <div className="absolute inset-0 bg-red-600/20 blur-2xl rounded-full"></div>
            <img 
             src={activeTab === 1 ? "/ebook1.png" : "/ebook2.png"} 
@@ -172,57 +172,48 @@ const Solution = () => {
   );
 };
 
-{/* --- SEÇÃO DE FOTOS AUTOMÁTICA --- */}
-<div className="w-full py-10 overflow-hidden bg-black">
-  <div className="flex animate-scroll whitespace-nowrap gap-6">
-    {/* Você pode repetir esse bloco para as 6 imagens */}
-    {[1, 2, 3, 4, 5, 6].map((num) => (
-      <div key={num} className="flex-shrink-0 flex flex-col items-center">
-        <span className="text-white font-bold mb-2 uppercase text-sm">Simulado de Prova</span>
-        <div className="w-60 h-80 bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700">
-           {/* Substitua pelo caminho real das suas imagens */}
-          <img src={`/foto${num}.png`} alt="Demonstração" className="w-full h-full object-cover" />
+const ScrollingPhotos = () => (
+  <div className="w-full py-20 overflow-hidden bg-black border-b border-white/5">
+    <div className="flex animate-scroll whitespace-nowrap gap-8">
+      {[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map((num, i) => (
+        <div key={i} className="flex-shrink-0 flex flex-col items-center">
+          <span className="text-zinc-500 font-black mb-4 uppercase text-[10px] tracking-[0.2em]">
+            Simulado de Prova
+          </span>
+          <div className="w-64 h-80 bg-zinc-900 rounded-2xl overflow-hidden border border-white/10 shadow-xl transition-transform hover:scale-105 duration-500">
+            <img src={`/foto${num}.png`} alt="Review" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" />
+          </div>
         </div>
-      </div>
-    ))}
-    {/* Duplicamos os itens para o efeito de loop infinito ser suave */}
-    {[1, 2, 3, 4, 5, 6].map((num) => (
-      <div key={`dup-${num}`} className="flex-shrink-0 flex flex-col items-center">
-        <span className="text-white font-bold mb-2 uppercase text-sm">Simulado de Prova</span>
-        <div className="w-60 h-80 bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700">
-          <img src={`/foto${num}.png`} alt="Demonstração" className="w-full h-full object-cover" />
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-
-{/* --- SEÇÃO: PARA QUEM É ESSE COMBO? --- */}
-<section className="py-16 px-4 flex flex-col items-center bg-black">
-  <h2 className="text-3xl md:text-4xl font-black text-white mb-10 text-center uppercase">
-    Para quem é esse combo?
-  </h2>
-
-  <div className="max-w-3xl w-full space-y-4">
-    {/* Item 1 */}
-    <div className="bg-zinc-900 border-l-4 border-red-600 p-6 rounded-r-lg">
-      <h3 className="text-white font-bold text-xl mb-1 uppercase">Estudantes do 2° Período</h3>
-      <p className="text-zinc-400">Que querem dar continuidade ao estudo com mais segurança e entender a lógica das disciplinas.</p>
-    </div>
-
-    {/* Item 2 */}
-    <div className="bg-zinc-900 border-l-4 border-red-600 p-6 rounded-r-lg">
-      <h3 className="text-white font-bold text-xl mb-1 uppercase">Calouros de Direito</h3>
-      <p className="text-zinc-400">Ainda não entendem "As regras básicas do Direito" e se sentem perdidos nos primeiros dias.</p>
-    </div>
-
-    {/* Item 3 */}
-    <div className="bg-zinc-900 border-l-4 border-red-600 p-6 rounded-r-lg">
-      <h3 className="text-white font-bold text-xl mb-1 uppercase">Veteranos de Revisão</h3>
-      <p className="text-zinc-400">Que precisam revisar o conteúdo inicial para concursos ou prova da OAB.</p>
+      ))}
     </div>
   </div>
-</section>
+);
+
+const TargetAudience = () => (
+  <section className="py-24 px-4 flex flex-col items-center bg-black">
+    <SectionTitle title="Para quem é esse combo?" subtitle="Identifique sua fase e veja como podemos acelerar seu aprendizado." />
+    <div className="max-w-3xl w-full space-y-6">
+      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5">
+        <h3 className="text-white font-black text-xl mb-2 uppercase">Estudantes do 2° Período</h3>
+        <p className="text-zinc-400 italic font-medium leading-relaxed">
+          Para quem quer entender a lógica das disciplinas e não quer apenas decorar para a prova.
+        </p>
+      </div>
+      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5">
+        <h3 className="text-white font-black text-xl mb-2 uppercase">Calouros de Direito</h3>
+        <p className="text-zinc-400 italic font-medium leading-relaxed">
+          Para quem ainda não entende "As regras básicas do Direito" e se sente perdido no início.
+        </p>
+      </div>
+      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5">
+        <h3 className="text-white font-black text-xl mb-2 uppercase">Veteranos</h3>
+        <p className="text-zinc-400 italic font-medium leading-relaxed">
+          Para quem precisa revisar o conteúdo inicial com rapidez e autoridade.
+        </p>
+      </div>
+    </div>
+  </section>
+);
 
 const Offers = () => (
   <section className="py-24 px-4 bg-zinc-950">
@@ -313,6 +304,8 @@ export default function App() {
     <main className="bg-black min-h-screen text-white selection:bg-red-600">
       <Hero />
       <Solution />
+      <ScrollingPhotos />
+      <TargetAudience />
       <Offers />
       <FAQ />
       <Biography />
