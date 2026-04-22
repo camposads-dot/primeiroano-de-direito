@@ -212,29 +212,60 @@ const TargetAudience = () => (
 );
 
 const Offers = () => (
-  <section className="py-24 px-4 bg-zinc-950">
+  <section className="py-24 px-4 relative bg-zinc-950 text-white selection:bg-red-500">
      <div className="container mx-auto max-w-7xl">
-      <SectionTitle title="Escolha seu acesso:" subtitle="Invista agora e garanta sua vantagem competitiva." />
+      <SectionTitle 
+        title="Escolha seu acesso:" 
+        subtitle="Invista agora e garanta sua vantagem competitiva desde o 1º dia." 
+      />
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
-        <Card className="flex flex-col">
-          <h3 className="text-2xl font-black mb-1 uppercase text-zinc-400">E-Book Semestre 1</h3>
-          <p className="text-xs font-bold text-zinc-500 mb-8 italic">Os primeiros 6 meses em 7 dias</p>
+        
+        {/* CARD 1: E-BOOK SEMESTRE 1 (Visualmente agradável e convincente) */}
+        <Card className="flex flex-col h-full hover:border-white/20 transition-all group">
           <div className="mb-8">
-             <div className="text-zinc-600 line-through text-sm font-bold">R$ 67,90</div>
-             <div className="text-4xl font-black text-white">R$ 37,90</div>
+            <h3 className="text-2xl font-black mb-1uppercase text-white">E-Book Semestre 1</h3>
+            <p className="text-xs uppercase font-bold text-zinc-500 mb-8 tracking-widest">Aprenda os primeiros 6 meses de Direito em 7 dias + 2 Bônus</p>
           </div>
-          <Button primary={false} className="mt-auto w-full">COMPRAR AGORA</Button>
+          <div className="mb-8 flex items-baseline gap-2">
+             <div className="text-zinc-500 line-through text-sm font-bold">R$ 67,90</div>
+             <div className="text-4xl font-black text-white leading-none">R$ 37,90</div>
+          </div>
+
+          {/* Lista de Conteúdo Convincente */}
+          <ul className="space-y-3 mb-10 flex-grow text-zinc-400 font-medium text-xs">
+            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-zinc-600"/> Módulo 1: Introdução ao Estudo do Direito (IED)</li>
+            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-zinc-600"/> Módulo 2: Teoria Geral da Constituição</li>
+            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-zinc-600"/> +2 Bônus Exclusivos (Manual da Graduação + Cronograma)</li>
+          </ul>
+
+          <Button primary={false} className="w-full mt-auto">COMPRAR AGORA</Button>
         </Card>
 
-        <Card featured={true} className="flex flex-col scale-105 border-yellow-400">
-          <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-black px-4 py-1 uppercase">Mais Vendido</div>
-          <h3 className="text-3xl font-black mb-1 uppercase">COMBO ESPECIAL 2026</h3>
-          <p className="text-xs font-black text-yellow-400 mb-8 uppercase">E-Book 1 + E-Book 2 + 4 Bônus</p>
-          <div className="mb-8">
-             <div className="text-zinc-500 line-through text-sm font-bold">De R$ 157,90 por</div>
-             <div className="text-6xl font-black text-yellow-400">R$ 57,90</div>
+        {/* CARD 2: COMBO ESPECIAL 2026 (Com os recursos detalhados solicitados) */}
+        <Card featured={true} className="flex flex-col h-full border-2 scale-105 relative z-10 shadow-[0_0_50px_rgba(234,179,8,0.1)] border-yellow-400/50">
+          <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-black px-4 py-1 rounded-bl-lg uppercase">
+            Mais Vendido
           </div>
-          <Button featured={true} className="mt-auto w-full">GARANTIR MINHA VAGA</Button>
+          <div className="mb-8">
+            <h3 className="text-3xl font-black mb-1uppercase text-white leading-tight">COMBO <br/> ESPECIAL 2026</h3>
+            <p className="text-xs uppercase font-bold text-yellow-400 mb-8 tracking-widest">E-Book 1 + E-Book 2 + 4 Bônus</p>
+          </div>
+          <div className="mb-8 flex items-baseline gap-2 leading-none">
+             <div className="text-zinc-500 line-through text-sm font-bold uppercase tracking-tight">De R$ 157,90 por</div>
+             <div className="text-6xl font-black text-yellow-400 leading-none">R$ 57,90</div>
+          </div>
+
+          {/* Lista Detalhada de Recursos (Nova Seção Pedida) */}
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-10 text-sm font-bold text-yellow-100 uppercase tracking-tight">
+            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Esquemas Simplificados</div>
+            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Exemplos Práticos</div>
+            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Associação com o Código</div>
+            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Espaço para anotações</div>
+            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Plano de Estudo incluso</div>
+            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Simulado de prova</div>
+          </div>
+
+          <Button featured={true} className="w-full text-xl mt-auto shadow-yellow-500/20">GARANTIR MINHA VAGA</Button>
         </Card>
       </div>
     </div>
