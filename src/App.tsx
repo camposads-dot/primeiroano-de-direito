@@ -116,22 +116,25 @@ const Hero = () => (
           <div className="flex items-center gap-3 mb-6">
             <div className="flex -space-x-2">
               {[
-                "https://randomuser.me/api/portraits/men/32.jpg",
-                "https://randomuser.me/api/portraits/women/44.jpg",
-                "https://randomuser.me/api/portraits/men/76.jpg",
-                "https://randomuser.me/api/portraits/women/65.jpg"
-              ].map((src, i) => (
+  "https://i.pravatar.cc/100?img=12",
+  "https://i.pravatar.cc/100?img=32",
+  "https://i.pravatar.cc/100?img=45",
+  "https://i.pravatar.cc/100?img=56"
+].map((src, i) => (
                 <img
-                  key={i}
-                  src={src}
-                  className="w-8 h-8 rounded-full border border-white/20"
-                />
+  key={i}
+  src={src}
+  className="w-10 h-10 rounded-full border-2 border-black shadow-md object-cover"
+/>
               ))}
-            </div>
-            <span className="text-xs text-zinc-500 uppercase">
-              Método testado
-            </span>
-          </div>
+            <div className="flex flex-col leading-tight">
+  <span className="text-xs text-zinc-400 font-semibold">
+    +400 alunos
+  </span>
+  <span className="text-[10px] text-zinc-500 uppercase">
+    método testado
+  </span>
+</div>
 
           {/* PREÇO */}
           <div className="p-4 bg-zinc-900/50 border border-white/5 rounded-xl flex items-center justify-between max-w-sm">
