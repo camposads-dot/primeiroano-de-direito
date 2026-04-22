@@ -152,7 +152,7 @@ const Hero = () => (
           <div className="aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/SEU_VIDEO_ID"
+              src="https://www.youtube.com/embed/PbOzmQFBgU8?si=c8ymorxtK93UOHpN"
               title="YouTube video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
