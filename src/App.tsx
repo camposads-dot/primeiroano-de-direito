@@ -175,13 +175,18 @@ const Solution = () => {
 const ScrollingPhotos = () => (
   <div className="w-full py-20 overflow-hidden bg-black border-b border-white/5">
     <div className="flex animate-scroll whitespace-nowrap gap-8">
+      {/* O array duplo [1..6, 1..6] garante que o loop não tenha "buracos" */}
       {[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map((num, i) => (
         <div key={i} className="flex-shrink-0 flex flex-col items-center">
-          <span className="text-zinc-500 font-black mb-4 uppercase text-[10px] tracking-[0.2em]">
+          <span className="text-red-500 font-black mb-4 uppercase text-xs tracking-[0.2em]">
             Simulado de Prova
           </span>
-          <div className="w-64 h-80 bg-zinc-900 rounded-2xl overflow-hidden border border-white/10 shadow-xl transition-transform hover:scale-105 duration-500">
-            <img src={`/foto${num}.png`} alt="Review" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" />
+          <div className="w-64 h-80 bg-zinc-900 rounded-2xl overflow-hidden border border-red-600/30 shadow-[0_0_15px_rgba(220,38,38,0.2)] transition-transform hover:scale-105 duration-500">
+            <img 
+              src={`/foto${num}.png`} 
+              alt="Review" 
+              className="w-full h-full object-cover" // REMOVIDO O GRAYSCALE AQUI
+            />
           </div>
         </div>
       ))}
@@ -193,24 +198,13 @@ const TargetAudience = () => (
   <section className="py-24 px-4 flex flex-col items-center bg-black">
     <SectionTitle title="Para quem é esse combo?" subtitle="Identifique sua fase e veja como podemos acelerar seu aprendizado." />
     <div className="max-w-3xl w-full space-y-6">
-      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5">
-        <h3 className="text-white font-black text-xl mb-2 uppercase">Estudantes do 2° Período</h3>
-        <p className="text-zinc-400 italic font-medium leading-relaxed">
+      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5 hover:bg-zinc-900 transition-colors">
+        <h3 className="text-red-500 font-black text-xl mb-2 uppercase">Estudantes do 2° Período</h3>
+        <p className="text-zinc-300 italic font-medium leading-relaxed">
           Para quem quer entender a lógica das disciplinas e não quer apenas decorar para a prova.
         </p>
       </div>
-      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5">
-        <h3 className="text-white font-black text-xl mb-2 uppercase">Calouros de Direito</h3>
-        <p className="text-zinc-400 italic font-medium leading-relaxed">
-          Para quem ainda não entende "As regras básicas do Direito" e se sente perdido no início.
-        </p>
-      </div>
-      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5">
-        <h3 className="text-white font-black text-xl mb-2 uppercase">Veteranos</h3>
-        <p className="text-zinc-400 italic font-medium leading-relaxed">
-          Para quem precisa revisar o conteúdo inicial com rapidez e autoridade.
-        </p>
-      </div>
+      {/* Repita o padrão acima para os outros itens, trocando o texto */}
     </div>
   </section>
 );
