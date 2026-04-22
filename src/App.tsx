@@ -213,22 +213,22 @@ const Solution = () => (
           viewport={{ once: true }}
         >
           <header className="mb-6">
-            <h3 className="text-brand-red text-xs font-bold uppercase tracking-widest mb-2">
+            <h3 className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2">
               A Solução Definitiva
             </h3>
-            <h2 className="text-3xl md:text-5xl font-black leading-tight uppercase mb-4 tracking-tighter">
+            <h2 className="text-3xl md:text-5xl font-black leading-tight uppercase mb-4 tracking-tighter text-white">
               O que muda no seu estudo?
             </h2>
           </header>
 
           <div className="space-y-4 text-zinc-400 font-medium">
             <div className="flex gap-3">
-              <CheckCircle2 size={18} className="text-brand-red mt-0.5" />
+              <CheckCircle2 size={18} className="text-red-500 mt-0.5" />
               <p>Acesso a uma sequência lógica sem complicação.</p>
             </div>
 
             <div className="flex gap-3">
-              <CheckCircle2 size={18} className="text-brand-red mt-0.5" />
+              <CheckCircle2 size={18} className="text-red-500 mt-0.5" />
               <p>Clareza e segurança para acompanhar a faculdade.</p>
             </div>
           </div>
@@ -241,14 +241,13 @@ const Solution = () => (
           viewport={{ once: true }}
           className="flex flex-col items-center gap-6"
         >
-
           {/* IMAGENS (ESTILO ORIGINAL) */}
           <div className="flex -space-x-8 md:-space-x-12">
-            
             {/* EBOOK 1 */}
             <div className="w-40 md:w-56 aspect-[3/4] rounded-xl overflow-hidden border border-white/10 shadow-2xl relative">
               <img
                 src="/ebook1.png"
+                alt="Ebook 1"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
@@ -261,6 +260,7 @@ const Solution = () => (
             <div className="w-40 md:w-56 aspect-[3/4] rounded-xl overflow-hidden border border-white/10 shadow-2xl relative mt-6 z-10">
               <img
                 src="/ebook2.png"
+                alt="Ebook 2"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
@@ -268,32 +268,27 @@ const Solution = () => (
                 E-book 02
               </p>
             </div>
-
           </div>
 
           {/* VÍDEOS */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-xl">
-
-            {/* VIDEO 1 */}
-            <div className="aspect-video rounded-lg overflow-hidden border border-white/10">
+            <div className="aspect-video rounded-lg overflow-hidden border border-white/10 bg-zinc-900">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/VIDEO1"
+                title="Video 1"
                 allowFullScreen
               />
             </div>
-
-            {/* VIDEO 2 */}
-            <div className="aspect-video rounded-lg overflow-hidden border border-white/10">
+            <div className="aspect-video rounded-lg overflow-hidden border border-white/10 bg-zinc-900">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/VIDEO2"
+                title="Video 2"
                 allowFullScreen
               />
             </div>
-
           </div>
-
         </motion.div>
       </div>
     </div>
