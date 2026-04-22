@@ -108,7 +108,7 @@ const Hero = () => (
             transition={{ delay: 0.2 }}
             className="text-zinc-400 text-lg md:text-xl mb-6 max-w-lg leading-snug font-medium"
           >
-            Entenda o 1° Ano com o método aprovado por +400 calouros. Simples, direto e sem decoreba.
+            Entenda o 1° Ano com o método aprovado por +400 calouros. Simples, direto e sem confusão.
           </motion.p>
           
           <motion.div
@@ -168,14 +168,14 @@ const PainPoints = () => (
   <section className="py-16 px-4 bg-brand-dark/50 border-y border-white/5">
     <div className="container mx-auto max-w-6xl">
       <SectionTitle 
-        title="O Problema" 
+        title="O  Problema" 
         subtitle="Por que o início da faculdade confunde tanta gente?"
       />
       <div className="grid md:grid-cols-3 gap-6">
         {[
-          { icon: <AlertCircle size={20} />, title: "Conceitos Abstratos", text: "Teorias complexas apresentadas sem contexto ou base sólida." },
-          { icon: <MessageCircle size={20} />, title: "Juridiquês Difícil", text: "Termos técnicos que afastam o aluno antes mesmo de ele entender o básico." },
-          { icon: <Clock size={20} />, title: "Sempre Atrasado", text: "A sensação de nunca estar dominando nada e sempre correndo atrás." }
+          { icon: <AlertCircle size={20} />, title: "Conceitos  Abstratos", text: "Teorias complexas apresentadas sem contexto ou base sólida." },
+          { icon: <MessageCircle size={20} />, title: "Juridiquês  Difícil", text: "Termos técnicos que afastam o aluno antes mesmo de ele entender o básico." },
+          { icon: <Clock size={20} />, title: "Sempre  Atrasado", text: "A sensação de nunca estar dominando nada e sempre correndo atrás." }
         ].map((item, i) => (
           <Card key={i} className="p-6 hover:border-brand-red/30 transition-colors">
             <div className="w-10 h-10 rounded-lg bg-brand-red/10 text-brand-red flex items-center justify-center mb-4">
@@ -206,7 +206,7 @@ const Solution = () => (
           <div className="space-y-4 text-zinc-400 font-medium">
             <div className="flex gap-3">
               <CheckCircle2 size={18} className="text-brand-red flex-shrink-0 mt-0.5" />
-              <p className="text-base">Acesso a uma sequência lógica que prioriza o entendimento antes da decoreba.</p>
+              <p className="text-base">Acesso a uma sequência lógica que prioriza o entendimento sem complicação.</p>
             </div>
             <div className="flex gap-3">
               <CheckCircle2 size={18} className="text-brand-red flex-shrink-0 mt-0.5" />
@@ -242,17 +242,17 @@ const Features = () => (
    <section className="py-24 px-4">
     <div className="container mx-auto max-w-7xl">
       <SectionTitle 
-        title="O que você vai encontrar" 
+        title="O  que  você  vai  encontrar" 
         subtitle="Construído para quem não tem tempo a perder e quer resultados imediatos."
       />
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {[
           { icon: <Layout size={20} />, text: "Esquemas Simplificados" },
-          { icon: <TrendingUp size={20} />, text: "Exemplos Práticos" },
-          { icon: <FileText size={20} />, text: "Associação com o Código" },
-          { icon: <CheckCircle2 size={20} />, text: "Espaço para anotações" },
+          { icon: <Layout size={20} />, text: "Exemplos Práticos" },
+          { icon: <Layout size={20} />, text: "Associação com o Código" },
+          { icon: <Layout size={20} />, text: "Espaço para anotações" },
           { icon: <Layout size={20} />, text: "Plano de Estudo incluso" },
-          { icon: <TrendingUp size={20} />, text: "Simulado de prova" },
+          { icon: <Layout size={20} />, text: "Simulado de prova" },
         ].map((item, i) => (
           <div key={i} className="flex items-center gap-3 p-4 glass rounded-2xl hover:bg-white/10 transition-colors">
             <div className="text-brand-red">{item.icon}</div>
@@ -268,13 +268,13 @@ const TargetAudience = () => (
   <section className="py-24 px-4 bg-brand-card/30">
     <div className="container mx-auto max-w-7xl">
       <SectionTitle 
-        title="Para quem é esse combo?" 
+        title="Para  quem  é  esse  combo?" 
       />
       <div className="grid md:grid-cols-3 gap-8">
         {[
-          { title: "Estudantes do 2° Período", desc: "Que querem entender a lógica das disciplinas e não apenas decorar nomes." },
-          { title: "Calouros de Direito", desc: "Ainda não entendem as regras básicas e se sentem perdidos nos primeiros dias." },
-          { title: "Veteranos de Revisão", desc: "Que precisam revisar o conteúdo inicial para concursos ou prova da OAB." }
+          { title: "Estudantes  do  2° Período", desc: "Que querem dar continuidade ao estudo com mais segurança." },
+          { title: "Calouros  de  Direito", desc: "Ainda não entendem as regras básicas e se sentem perdidos nos primeiros dias." },
+          { title: "Veteranos  de  Revisão", desc: "Que precisam revisar o conteúdo inicial para concursos ou prova da OAB." }
         ].map((item, i) => (
           <div key={i} className="p-8 border-l-4 border-brand-red bg-white/5 rounded-r-3xl">
             <h3 className="text-xl font-bold mb-2">{item.title}</h3>
@@ -327,7 +327,7 @@ const Testimonials = () => {
   return (
     <section className="py-24 px-4 overflow-hidden">
       <div className="container mx-auto max-w-7xl">
-        <SectionTitle title="Quem comprou aprovou..." />
+        <SectionTitle title="Quem  comprou  aprovou..." />
         <div 
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto pb-8 snap-x no-scrollbar"
@@ -372,15 +372,15 @@ const Offers = () => (
   <section className="py-24 px-4 relative bg-zinc-950">
      <div className="container mx-auto max-w-7xl">
       <SectionTitle 
-        title="Escolha seu acesso:" 
+        title="Escolha  seu  acesso:" 
         subtitle="Invista agora e garanta sua vantagem competitiva desde o 1º dia."
       />
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {/* Solo Option */}
         <Card className="flex flex-col h-full border-white/10 hover:border-white/30 transition-all group">
           <div className="mb-8">
-            <h3 className="text-2xl font-black mb-1">E-Book Semestre 1</h3>
-            <p className="micro-label">Aprenda 6 meses em 7 dias + 2 Bônus</p>
+            <h3 className="text-2xl font-black mb-1">E-Book  Semestre  1</h3>
+            <p className="micro-label">Aprenda os primeiros 6 meses de Direito em 7 dias + 2 Bônus</p>
           </div>
           <div className="mb-8 flex items-baseline gap-2">
              <div className="text-zinc-500 line-through text-sm font-bold">R$ 67,90</div>
@@ -388,7 +388,7 @@ const Offers = () => (
           </div>
           <ul className="space-y-3 mb-10 flex-grow text-xs font-medium text-zinc-400">
             {[
-              "E-Book 1: 6 Meses em 7 Dias",
+              "E-Book 1: Os primeiros 6 meses de Direito em 7 Dias",
               "+2 Bônus Exclusivos",
               "Acesso vitalício",
               "Suporte Personalizado"
@@ -407,7 +407,7 @@ const Offers = () => (
             Mais Vendido
           </div>
           <div className="mb-8">
-            <h3 className="text-3xl font-black mb-1">COMBO ESPECIAL 2026</h3>
+            <h3 className="text-3xl font-black mb-1">COMBO  ESPECIAL  2026</h3>
             <p className="micro-label text-zinc-300">E-Book 1 + E-Book 2 + 4 Bônus</p>
           </div>
           <div className="mb-8 flex items-baseline gap-2">
