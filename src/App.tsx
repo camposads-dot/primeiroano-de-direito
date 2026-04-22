@@ -3,22 +3,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from 'framer-motion'; // Ajustado de 'motion/react' para 'framer-motion'
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { 
   CheckCircle2, 
-  Star, 
-  MessageCircle, 
-  Layout, 
-  Lock, 
-  HelpCircle, 
   Instagram, 
   ArrowRight,
-  Clock,
   ShieldCheck,
-  AlertCircle,
   ChevronDown
 } from 'lucide-react';
-import { useState, useRef } from 'react';
 
 // --- Components ---
 
@@ -83,17 +76,17 @@ const Hero = () => (
 
     <div className="flex-1 flex items-center px-6 py-12">
       <div className="container mx-auto max-w-7xl grid lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
+        <div className="space-y-8 text-center lg:text-left">
           <h1 className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase">
             PARE DE SE <br/> <span className="text-red-600">PERDER</span> <br/> NO DIREITO.
           </h1>
-          <p className="text-zinc-400 text-xl font-bold max-w-lg italic">
+          <p className="text-zinc-400 text-xl font-bold max-w-lg mx-auto lg:mx-0 italic">
             "Entenda o 1° Ano com o método aprovado por +400 calouros. Direto e sem confusão."
           </p>
-          <Button featured className="w-full sm:w-fit px-12 py-6 text-xl">
+          <Button featured className="w-full sm:w-fit px-12 py-6 text-xl mx-auto lg:mx-0">
             QUERO MEU ACESSO <ArrowRight size={20} />
           </Button>
-          <div className="flex items-center gap-4 pt-4">
+          <div className="flex items-center justify-center lg:justify-start gap-4 pt-4">
              <div className="text-zinc-500 line-through text-sm font-bold">R$ 157,90</div>
              <div className="text-2xl font-black text-red-500">COMBO: R$ 57,90</div>
           </div>
@@ -107,80 +100,73 @@ const Hero = () => (
 );
 
 const Solution = () => {
-  // Estado para controlar qual E-book está selecionado
-  const [activeTab, setActiveTab] = React.useState(1);
+  const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <section className="flex flex-col items-center gap-6 py-10">
-      {/* SELETOR DE E-BOOK */}
-      <div className="flex gap-4">
-        <button 
-          onClick={() => setActiveTab(1)}
-          className={`px-6 py-2 rounded-lg font-bold transition ${activeTab === 1 ? 'bg-red-600 text-white' : 'bg-gray-800 text-gray-400'}`}
-        >
-          E-BOOK 01
-        </button>
-        <button 
-          onClick={() => setActiveTab(2)}
-          className={`px-6 py-2 rounded-lg font-bold transition ${activeTab === 2 ? 'bg-red-600 text-white' : 'bg-gray-800 text-gray-400'}`}
-        >
-          E-BOOK 02
-        </button>
-      </div>
+    <section className="py-20 bg-black text-white border-y border-white/5">
+      <div className="container mx-auto max-w-4xl px-4 flex flex-col items-center">
+        <h2 className="text-3xl md:text-5xl font-black uppercase text-center mb-10 italic">
+          O QUE MUDA NO SEU <span className="text-red-600">ESTUDO?</span>
+        </h2>
 
-      {/* CONTEÚDO DINÂMICO */}
-      <div className="flex flex-col items-center max-w-md w-full px-4">
-        
+        {/* SELETOR DE E-BOOK */}
+        <div className="flex p-1 bg-zinc-900 rounded-2xl border border-white/10 mb-12">
+          <button 
+            onClick={() => setActiveTab(1)}
+            className={`px-8 py-3 rounded-xl font-black uppercase text-xs transition-all ${activeTab === 1 ? 'bg-red-600 text-white' : 'text-zinc-500'}`}
+          >
+            E-BOOK 01
+          </button>
+          <button 
+            onClick={() => setActiveTab(2)}
+            className={`px-8 py-3 rounded-xl font-black uppercase text-xs transition-all ${activeTab === 2 ? 'bg-red-600 text-white' : 'text-zinc-500'}`}
+          >
+            E-BOOK 02
+          </button>
+        </div>
+
         {/* IMAGEM MENOR (ACIMA) */}
-        <div className="w-32 md:w-40 aspect-[3/4] mb-6 shadow-2xl">
-          <img 
+        <div className="w-32 md:w-40 aspect-[3/4] mb-8 relative">
+           <div className="absolute inset-0 bg-red-600/20 blur-2xl rounded-full"></div>
+           <img 
             src={activeTab === 1 ? "/ebook1.png" : "/ebook2.png"} 
             alt="Capa Ebook" 
-            className="w-full h-full object-cover rounded-xl"
+            className="w-full h-full object-cover rounded-xl border border-white/10 shadow-2xl relative z-10"
           />
         </div>
 
-        {/* LEGENDAS/BENEFÍCIOS (ABAIXO) */}
-        <div className="space-y-4 w-full">
+        {/* LEGENDAS ABAIXO */}
+        <div className="w-full max-w-md space-y-3">
           {activeTab === 1 ? (
             <>
-              <div className="flex items-start gap-3 bg-gray-900/50 p-4 rounded-xl border border-gray-800">
-                <div className="text-red-600 mt-1">✔</div>
-                <p className="text-sm text-gray-200 leading-relaxed">
-                  Acesso a uma sequência lógica que prioriza o entendimento sem complicação.
-                </p>
+              <div className="flex items-center gap-3 bg-zinc-900/50 p-4 rounded-xl border border-white/5">
+                <CheckCircle2 size={16} className="text-red-600 shrink-0" />
+                <p className="text-sm font-bold text-zinc-300">Acesso a uma sequência lógica sem complicação.</p>
               </div>
-              <div className="flex items-start gap-3 bg-gray-900/50 p-4 rounded-xl border border-gray-800">
-                <div className="text-red-600 mt-1">✔</div>
-                <p className="text-sm text-gray-200 leading-relaxed">
-                  Clareza e segurança para acompanhar a faculdade com autoridade.
-                </p>
+              <div className="flex items-center gap-3 bg-zinc-900/50 p-4 rounded-xl border border-white/5">
+                <CheckCircle2 size={16} className="text-red-600 shrink-0" />
+                <p className="text-sm font-bold text-zinc-300">Clareza e segurança para acompanhar a faculdade.</p>
               </div>
             </>
           ) : (
-            <div className="bg-gray-900/50 p-4 rounded-xl border border-gray-800">
-              <ul className="grid grid-cols-1 gap-2">
+            <div className="bg-zinc-900/50 p-5 rounded-xl border border-white/5">
+              <ul className="space-y-3">
                 {[
                   "Esquemas Simplificados",
                   "Exemplos Práticos",
                   "Associação com o Código",
                   "Espaço para anotações",
                   "Plano de Estudo incluso",
-                  "Simulado de prova no final de cada disciplina"
+                  "Simulado de prova no final"
                 ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3 text-xs text-gray-300">
-                    <span className="text-red-600 text-lg">•</span> {item}
+                  <li key={index} className="flex items-center gap-3 text-xs font-black uppercase text-zinc-300 tracking-tight">
+                    <div className="w-1.5 h-1.5 bg-red-600 rounded-full" /> {item}
                   </li>
                 ))}
               </ul>
             </div>
           )}
         </div>
-
-        {/* BOTÃO DE AÇÃO */}
-        <button className="mt-8 w-full bg-yellow-500 hover:bg-yellow-400 text-black font-black py-4 rounded-xl uppercase tracking-tighter text-lg transition-transform active:scale-95 shadow-[0_0_20px_rgba(234,179,8,0.3)]">
-          Garantir Combo Agora
-        </button>
       </div>
     </section>
   );
