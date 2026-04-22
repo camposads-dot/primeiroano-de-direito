@@ -239,7 +239,7 @@ const Offers = () => (
           <div className="mb-8 relative z-10">
             <h3 className="text-2xl font-black mb-1 uppercase text-white">E-Book Semestre 1</h3>
             <p className="text-[10px] uppercase font-bold text-brand-red tracking-[0.2em] mb-8">
-              6 Meses de Conteúdo em 7 Dias
+              Aprenda os primeiros 6 meses de Direito em 7 dias!
             </p>
           </div>
 
@@ -252,9 +252,9 @@ const Offers = () => (
           <ul className="space-y-4 mb-10 flex-grow relative z-10">
             {[
               "Introdução ao Estudo do Direito",
-              "Teoria Geral da Constituição",
-              "Linguagem Jurídica e Técnica",
-              "Bônus: Manual da Graduação"
+              "Ciências Políticas, Estado e Constituição",
+              "Criminologia, Antropologia, Histótia do Direito",
+              "+ 2 Bônus Exclusivos"
             ].map((item, i) => (
               <li key={i} className="flex gap-3 items-center text-zinc-300 font-bold text-xs uppercase tracking-tight">
                 <CheckCircle2 size={18} className="text-brand-red" strokeWidth={3} />
