@@ -212,61 +212,100 @@ const TargetAudience = () => (
 );
 
 const Offers = () => (
-  <section className="py-24 px-4 relative bg-zinc-950 text-white selection:bg-red-500">
+  <section className="py-24 px-4 relative bg-zinc-950">
      <div className="container mx-auto max-w-7xl">
-      <SectionTitle 
-        title="Escolha seu acesso:" 
-        subtitle="Invista agora e garanta sua vantagem competitiva desde o 1º dia." 
-      />
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+      {/* Título em Vermelho conforme solicitado */}
+      <div className="mb-12 text-center">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-6xl font-display font-black tracking-tighter uppercase text-brand-red mb-4"
+        >
+          Escolha seu acesso:
+        </motion.h2>
+        <p className="text-zinc-muted text-base md:text-lg max-w-2xl mx-auto italic font-medium">
+          Invista agora e garanta sua vantagem competitiva desde o 1º dia.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto items-stretch">
         
-        {/* CARD 1: E-BOOK SEMESTRE 1 (Visualmente agradável e convincente) */}
-        <Card className="flex flex-col h-full hover:border-white/20 transition-all group">
-          <div className="mb-8">
-            <h3 className="text-2xl font-black mb-1uppercase text-white">E-Book Semestre 1</h3>
-            <p className="text-xs uppercase font-bold text-zinc-500 mb-8 tracking-widest">Aprenda os primeiros 6 meses de Direito em 7 dias + 2 Bônus</p>
-          </div>
-          <div className="mb-8 flex items-baseline gap-2">
-             <div className="text-zinc-500 line-through text-sm font-bold">R$ 67,90</div>
-             <div className="text-4xl font-black text-white leading-none">R$ 37,90</div>
+        {/* CARD 1: E-BOOK SEMESTRE 1 (Paleta Vermelha) */}
+        <Card className="flex flex-col h-full border-brand-red/20 hover:border-brand-red/50 transition-all relative overflow-hidden group">
+          {/* Sutil brilho vermelho ao fundo */}
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand-red/5 blur-[80px] group-hover:bg-brand-red/10 transition-colors" />
+          
+          <div className="mb-8 relative z-10">
+            <h3 className="text-2xl font-black mb-1 uppercase text-white">E-Book Semestre 1</h3>
+            <p className="text-[10px] uppercase font-bold text-brand-red tracking-[0.2em] mb-8">
+              6 Meses de Conteúdo em 7 Dias
+            </p>
           </div>
 
-          {/* Lista de Conteúdo Convincente */}
-          <ul className="space-y-3 mb-10 flex-grow text-zinc-400 font-medium text-xs">
-            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-zinc-600"/> Módulo 1: Introdução ao Estudo do Direito (IED)</li>
-            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-zinc-600"/> Módulo 2: Teoria Geral da Constituição</li>
-            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-zinc-600"/> +2 Bônus Exclusivos (Manual da Graduação + Cronograma)</li>
+          <div className="mb-8 flex items-baseline gap-2 relative z-10">
+             <div className="text-zinc-600 line-through text-sm font-bold">R$ 67,90</div>
+             <div className="text-5xl font-black text-white leading-none">R$ 37,90</div>
+          </div>
+
+          {/* Entrega de valor em Vermelho */}
+          <ul className="space-y-4 mb-10 flex-grow relative z-10">
+            {[
+              "Introdução ao Estudo do Direito",
+              "Teoria Geral da Constituição",
+              "Linguagem Jurídica e Técnica",
+              "Bônus: Manual da Graduação"
+            ].map((item, i) => (
+              <li key={i} className="flex gap-3 items-center text-zinc-300 font-bold text-xs uppercase tracking-tight">
+                <CheckCircle2 size={18} className="text-brand-red" strokeWidth={3} />
+                {item}
+              </li>
+            ))}
           </ul>
 
-          <Button primary={false} className="w-full mt-auto">COMPRAR AGORA</Button>
+          <Button primary={true} className="w-full mt-auto py-5 red-glow">
+            COMPRAR INDIVIDUAL
+          </Button>
         </Card>
 
-        {/* CARD 2: COMBO ESPECIAL 2026 (Com os recursos detalhados solicitados) */}
-        <Card featured={true} className="flex flex-col h-full border-2 scale-105 relative z-10 shadow-[0_0_50px_rgba(234,179,8,0.1)] border-yellow-400/50">
-          <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-black px-4 py-1 rounded-bl-lg uppercase">
+        {/* CARD 2: COMBO ESPECIAL (Destaque Amarelo com novos itens) */}
+        <Card featured={true} className="flex flex-col h-full border-brand-yellow/50 scale-105 relative z-20 shadow-[0_0_60px_rgba(234,179,8,0.15)] bg-brand-card">
+          <div className="absolute top-0 right-0 bg-brand-yellow text-black text-[10px] font-black px-6 py-2 uppercase tracking-tighter shadow-xl">
             Mais Vendido
           </div>
+          
           <div className="mb-8">
-            <h3 className="text-3xl font-black mb-1uppercase text-white leading-tight">COMBO <br/> ESPECIAL 2026</h3>
-            <p className="text-xs uppercase font-bold text-yellow-400 mb-8 tracking-widest">E-Book 1 + E-Book 2 + 4 Bônus</p>
+            <h3 className="text-3xl font-black mb-1 uppercase text-white leading-[0.9]">COMBO <br/> <span className="text-brand-yellow">ESPECIAL 2026</span></h3>
+            <p className="text-[10px] uppercase font-bold text-brand-yellow/80 mb-8 tracking-[0.2em]">E-Book 1 + E-Book 2 + 4 Bônus</p>
           </div>
+
           <div className="mb-8 flex items-baseline gap-2 leading-none">
-             <div className="text-zinc-500 line-through text-sm font-bold uppercase tracking-tight">De R$ 157,90 por</div>
-             <div className="text-6xl font-black text-yellow-400 leading-none">R$ 57,90</div>
+             <div className="text-zinc-500 line-through text-sm font-bold uppercase">De R$ 157,90 por</div>
+             <div className="text-6xl font-black text-brand-yellow leading-none">R$ 57,90</div>
           </div>
 
-          {/* Lista Detalhada de Recursos (Nova Seção Pedida) */}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-10 text-sm font-bold text-yellow-100 uppercase tracking-tight">
-            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Esquemas Simplificados</div>
-            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Exemplos Práticos</div>
-            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Associação com o Código</div>
-            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Espaço para anotações</div>
-            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Plano de Estudo incluso</div>
-            <div className="flex gap-1 items-center"><CheckCircle2 size={14} className="text-yellow-400 shrink-0"/> Simulado de prova</div>
+          {/* Novos itens solicitados */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 mb-10 text-[10px] font-black text-white uppercase tracking-tight">
+            {[
+              "Esquemas Simplificados",
+              "Exemplos Práticos",
+              "Associação com o Código",
+              "Espaço para anotações",
+              "Plano de Estudo incluso",
+              "Simulado por disciplina"
+            ].map((feature, i) => (
+              <div key={i} className="flex gap-2 items-center bg-white/5 p-2 rounded-lg border border-white/5">
+                <CheckCircle2 size={14} className="text-brand-yellow shrink-0" strokeWidth={3} />
+                <span>{feature}</span>
+              </div>
+            ))}
           </div>
 
-          <Button featured={true} className="w-full text-xl mt-auto shadow-yellow-500/20">GARANTIR MINHA VAGA</Button>
+          <Button featured={true} className="w-full text-xl py-6 yellow-glow">
+            GARANTIR COMBO COMPLETO
+          </Button>
         </Card>
+
       </div>
     </div>
   </section>
