@@ -81,74 +81,84 @@ const Card = ({ children, className = '', glow = false, featured = false }: any)
 // --- Sections ---
 
 const Hero = () => (
-  <section className="relative min-h-[85vh] flex flex-col pt-0 pb-12 overflow-hidden">
-    {/* Top Bar Link */}
-    <header className="h-10 border-b border-white/10 flex items-center px-4 md:px-8 justify-between bg-black/40 backdrop-blur-md mb-8 md:mb-16">
+  <section className="relative min-h-[90vh] flex flex-col overflow-hidden">
+
+    {/* TOP BAR */}
+    <header className="h-10 border-b border-white/10 flex items-center px-4 md:px-8 justify-between bg-black/40 backdrop-blur-md">
       <div className="flex items-center gap-2">
-        <div className="w-2.5 h-2.5 bg-red-600 rounded-full pulse-dot"></div>
-        <span className="text-[9px] font-bold uppercase tracking-widest text-zinc-500">Turma 2026: Acesso Prioritário</span>
+        <div className="w-2.5 h-2.5 bg-red-600 rounded-full"></div>
+        <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+          Turma 2026: Acesso Prioritário
+        </span>
       </div>
-       {/* TEXTO */}
-      <div>
-        <h1 className="text-4xl md:text-6xl font-black leading-tight mb-4">
-          PARE DE SE <span className="text-red-500">PERDER</span> NO DIREITO.
-        </h1>
+    </header>
 
-        <p className="text-zinc-400 text-lg mb-6 max-w-lg">
-          Entenda o 1° Ano com o método aprovado por +400 calouros.
-          Simples, direto e sem confusão.
-        </p>
+    {/* CONTEÚDO */}
+    <div className="flex-1 flex items-center px-4 md:px-8">
+      <div className="container mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
 
-        <Button className="mb-4">
-          QUERO MEU ACESSO <ArrowRight size={18} />
-        </Button>
+        {/* TEXTO ESQUERDA */}
+        <div>
+          <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6">
+            PARE DE SE <span className="text-red-500">PERDER</span> NO DIREITO.
+          </h1>
 
-        {/* AVATARES */}
-        <div className="flex items-center gap-3 mt-4">
-          <div className="flex -space-x-2">
-            {[
-              "https://randomuser.me/api/portraits/men/32.jpg",
-              "https://randomuser.me/api/portraits/women/44.jpg",
-              "https://randomuser.me/api/portraits/men/76.jpg",
-              "https://randomuser.me/api/portraits/women/65.jpg"
-            ].map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                className="w-8 h-8 rounded-full border border-white/20"
-              />
-            ))}
+          <p className="text-zinc-400 text-lg mb-6 max-w-lg">
+            Entenda o 1° Ano com o método aprovado por +400 calouros.
+            Simples, direto e sem confusão.
+          </p>
+
+          <Button className="mb-6">
+            QUERO MEU ACESSO <ArrowRight size={18} />
+          </Button>
+
+          {/* AVATARES */}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex -space-x-2">
+              {[
+                "https://randomuser.me/api/portraits/men/32.jpg",
+                "https://randomuser.me/api/portraits/women/44.jpg",
+                "https://randomuser.me/api/portraits/men/76.jpg",
+                "https://randomuser.me/api/portraits/women/65.jpg"
+              ].map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  className="w-8 h-8 rounded-full border border-white/20"
+                />
+              ))}
+            </div>
+            <span className="text-xs text-zinc-500 uppercase">
+              Método testado
+            </span>
           </div>
-          <span className="text-xs text-zinc-500 uppercase">
-            Método testado
-          </span>
+
+          {/* PREÇO */}
+          <div className="p-4 bg-zinc-900/50 border border-white/5 rounded-xl flex items-center justify-between max-w-sm">
+            <div className="text-zinc-500 line-through text-sm font-bold">
+              R$ 157,90
+            </div>
+            <div className="text-xl font-black text-red-500">
+              COMBO: R$ 57,90
+            </div>
+          </div>
         </div>
 
-        {/* PREÇO */}
-        <div className="mt-6 p-3 bg-zinc-900/50 border border-white/5 rounded-xl flex items-center justify-between max-w-xs">
-          <div className="text-zinc-500 line-through text-xs font-bold">
-            R$ 157,90
-          </div>
-          <div className="text-lg font-black text-red-500">
-            COMBO: R$ 57,90
+        {/* VÍDEO DIREITA */}
+        <div className="w-full">
+          <div className="aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/SEU_VIDEO_ID"
+              title="YouTube video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
-      </div>
 
-      {/* VÍDEO YOUTUBE */}
-      <div className="w-full max-w-xl mx-auto lg:mx-0">
-        <div className="aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl">
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/SEU_VIDEO_ID"
-            title="YouTube video"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
       </div>
-
     </div>
   </section>
 );
