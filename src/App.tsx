@@ -126,7 +126,7 @@ const Solution = () => {
         </div>
 
         {/* IMAGEM MENOR (ACIMA) */}
-        <div className="w-32 md:w-40 aspect-[3/4] mb-8 relative">
+        <div className="w-48 md:w-64 aspect-[3/4] rounded-xl overflow-hidden relative shadow-2xl">
            <div className="absolute inset-0 bg-red-600/20 blur-2xl rounded-full"></div>
            <img 
             src={activeTab === 1 ? "/ebook1.png" : "/ebook2.png"} 
@@ -171,6 +171,58 @@ const Solution = () => {
     </section>
   );
 };
+
+{/* --- SEÇÃO DE FOTOS AUTOMÁTICA --- */}
+<div className="w-full py-10 overflow-hidden bg-black">
+  <div className="flex animate-scroll whitespace-nowrap gap-6">
+    {/* Você pode repetir esse bloco para as 6 imagens */}
+    {[1, 2, 3, 4, 5, 6].map((num) => (
+      <div key={num} className="flex-shrink-0 flex flex-col items-center">
+        <span className="text-white font-bold mb-2 uppercase text-sm">Simulado de Prova</span>
+        <div className="w-60 h-80 bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700">
+           {/* Substitua pelo caminho real das suas imagens */}
+          <img src={`/foto${num}.png`} alt="Demonstração" className="w-full h-full object-cover" />
+        </div>
+      </div>
+    ))}
+    {/* Duplicamos os itens para o efeito de loop infinito ser suave */}
+    {[1, 2, 3, 4, 5, 6].map((num) => (
+      <div key={`dup-${num}`} className="flex-shrink-0 flex flex-col items-center">
+        <span className="text-white font-bold mb-2 uppercase text-sm">Simulado de Prova</span>
+        <div className="w-60 h-80 bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700">
+          <img src={`/foto${num}.png`} alt="Demonstração" className="w-full h-full object-cover" />
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+{/* --- SEÇÃO: PARA QUEM É ESSE COMBO? --- */}
+<section className="py-16 px-4 flex flex-col items-center bg-black">
+  <h2 className="text-3xl md:text-4xl font-black text-white mb-10 text-center uppercase">
+    Para quem é esse combo?
+  </h2>
+
+  <div className="max-w-3xl w-full space-y-4">
+    {/* Item 1 */}
+    <div className="bg-zinc-900 border-l-4 border-red-600 p-6 rounded-r-lg">
+      <h3 className="text-white font-bold text-xl mb-1 uppercase">Estudantes do 2° Período</h3>
+      <p className="text-zinc-400">Que querem dar continuidade ao estudo com mais segurança e entender a lógica das disciplinas.</p>
+    </div>
+
+    {/* Item 2 */}
+    <div className="bg-zinc-900 border-l-4 border-red-600 p-6 rounded-r-lg">
+      <h3 className="text-white font-bold text-xl mb-1 uppercase">Calouros de Direito</h3>
+      <p className="text-zinc-400">Ainda não entendem "As regras básicas do Direito" e se sentem perdidos nos primeiros dias.</p>
+    </div>
+
+    {/* Item 3 */}
+    <div className="bg-zinc-900 border-l-4 border-red-600 p-6 rounded-r-lg">
+      <h3 className="text-white font-bold text-xl mb-1 uppercase">Veteranos de Revisão</h3>
+      <p className="text-zinc-400">Que precisam revisar o conteúdo inicial para concursos ou prova da OAB.</p>
+    </div>
+  </div>
+</section>
 
 const Offers = () => (
   <section className="py-24 px-4 bg-zinc-950">
