@@ -194,7 +194,6 @@ const Solution = () => {
 };
 
 const ScrollingPhotos = () => {
-  // Lista de títulos dinâmicos para cada imagem
   const photoData = [
     { id: 1, title: "Simulado de Prova" },
     { id: 2, title: "Questões Comentadas" },
@@ -204,12 +203,23 @@ const ScrollingPhotos = () => {
     { id: 6, title: "Base do Direito" },
   ];
 
-  // Duplicamos a lista para o scroll ser infinito e fluido
-  const displayPhotos = [...photoData, ...photoData];
+  // Duplicamos a lista para o scroll ser infinito e não ter "buracos"
+  const displayPhotos = [...photoData, ...photoData, ...photoData];
 
   return (
     <div className="w-full py-20 overflow-hidden bg-black border-b border-white/5">
-      <div className="flex animate-scroll gap-8">
+      <motion.div 
+        className="flex gap-8"
+        animate={{ 
+          x: [0, -1920] // Faz a linha correr para a esquerda
+        }}
+        transition={{ 
+          duration: 30, 
+          repeat: Infinity, 
+          ease: "linear" 
+        }}
+        style={{ width: "max-content" }}
+      >
         {displayPhotos.map((item, i) => (
           <div key={i} className="flex-shrink-0 flex flex-col items-center w-64">
             <span className="text-red-500 font-black mb-4 uppercase text-[10px] tracking-[0.2em] text-center">
@@ -221,14 +231,13 @@ const ScrollingPhotos = () => {
                 alt={item.title} 
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                 onError={(e) => {
-                  // Caso a imagem não carregue, mostra um fundo cinza com o título
                   e.currentTarget.src = "https://via.placeholder.com/256x320/18181b/ffffff?text=Carregando...";
                 }}
               />
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
