@@ -10,22 +10,34 @@ import {
 
 // --- Components ---
 
-const Button = ({ children, className = '', primary = true, featured = false, ...props }: any) => (
-  <motion.button
-    whileHover={{ scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
-    className={`px-8 py-4 rounded-xl font-black text-lg uppercase tracking-tight transition-all duration-300 flex items-center justify-center gap-2 ${
-      featured
-        ? 'bg-yellow-400 text-black shadow-[0_0_25px_rgba(234,179,8,0.4)] hover:bg-yellow-500'
-        : primary 
-          ? 'bg-red-600 text-white shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:bg-red-700' 
-          : 'bg-zinc-800 text-white border border-white/10 hover:bg-zinc-700'
-    } ${className}`}
-    {...props}
-  >
-    {children}
-  </motion.button>
-);
+const Button = ({ children, className = '', primary = true, featured = false, ...props }: any) => {
+  
+  // Esta é a lógica que faz a âncora funcionar
+  const scrollToOffers = () => {
+    const element = document.getElementById('ofertas');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      onClick={scrollToOffers} // Adicionamos o clique aqui
+      className={`px-8 py-4 rounded-xl font-black text-lg uppercase tracking-tight transition-all duration-300 flex items-center justify-center gap-2 ${
+        featured
+          ? 'bg-yellow-400 text-black shadow-[0_0_25px_rgba(234,179,8,0.4)] hover:bg-yellow-500'
+          : primary 
+            ? 'bg-red-600 text-white shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:bg-red-700' 
+            : 'bg-zinc-800 text-white border border-white/10 hover:bg-zinc-700'
+      } ${className}`}
+      {...props}
+    >
+      {children}
+    </motion.button>
+  );
+};
 
 const SectionTitle = ({ title, subtitle, centered = true }: any) => (
   <div className={`mb-12 ${centered ? 'text-center' : ''}`}>
@@ -418,7 +430,7 @@ const Testimonials = () => {
 };
 
 const Offers = () => (
-  <section className="py-24 px-4 relative bg-zinc-950">
+  <section id="ofertas" className="py-24 px-4 relative bg-zinc-950">
      <div className="container mx-auto max-w-7xl">
       {/* Título em Vermelho conforme solicitado */}
       <div className="mb-12 text-center">
