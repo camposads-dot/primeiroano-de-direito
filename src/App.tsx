@@ -455,40 +455,6 @@ const Offers = () => (
   </section>
 );
 
-const QuickSummary = () => (
-  <section className="py-20 px-4 bg-black">
-    <div className="container mx-auto max-w-2xl bg-zinc-900/30 border border-white/5 p-8 md:p-12 rounded-[2.5rem]">
-      <h2 className="text-3xl md:text-4xl font-black uppercase mb-2 leading-none text-white">
-        Não leu tudo?
-      </h2>
-      <h3 className="text-3xl md:text-4xl font-black uppercase mb-8 text-red-600 leading-none">
-        Resumo pra você:
-      </h3>
-
-      <div className="space-y-6 text-zinc-400 font-bold italic text-lg leading-snug">
-        <p>
-          Se quer aprender em <span className="text-white">7 dias</span> o que levam <span className="text-white">6 meses</span>, esse método é para você.
-        </p>
-
-        <div className="border-l-2 border-red-600 pl-6 py-2 bg-white/5 rounded-r-xl">
-          <p className="text-zinc-300">
-            "Um guia oficial para acelerar seus estudos e dominar a base da faculdade."
-          </p>
-        </div>
-
-        <p className="text-base">
-          Garante hoje <span className="text-white">85% de desconto</span> + bônus. <br/>
-          Pagamento único e 7 dias de garantia.
-        </p>
-      </div>
-
-      <Button primary className="w-full mt-10 py-6 text-xl red-glow">
-        OK, ME CONVENCEU!
-      </Button>
-    </div>
-  </section>
-);
-
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const questions = [
