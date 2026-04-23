@@ -481,9 +481,14 @@ const Offers = () => (
             ))}
           </ul>
 
-          <Button primary={true} className="w-full mt-auto py-5 red-glow">
-            COMPRAR INDIVIDUAL
-          </Button>
+          <a 
+  href="https://pay.cakto.com.br/352hm6e_826370" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="px-8 py-4 rounded-xl font-black uppercase bg-red-600 text-white w-full text-center block"
+>
+  COMPRAR INDIVIDUAL
+</a>
         </Card>
 
         {/* CARD 2: COMBO ESPECIAL (Destaque Amarelo com novos itens) */}
