@@ -524,9 +524,14 @@ const Offers = () => (
             ))}
           </div>
 
-          <Button featured={true} className="w-full text-xl py-6 yellow-glow">
-            GARANTIR COMBO COMPLETO
-          </Button>
+          <a 
+  href="https://pay.cakto.com.br/vdy6hxk_859959" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="px-8 py-4 rounded-xl font-black uppercase bg-yellow-400 text-black w-full text-center block"
+>
+  GARANTIR COMBO COMPLETO
+</a>
         </Card>
 
       </div>
