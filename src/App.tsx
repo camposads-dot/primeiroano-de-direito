@@ -480,6 +480,7 @@ export default function App() {
       <Solution />
       <ScrollingPhotos />
       <TargetAudience />
+      <ExclusiveBonus />
       <Offers />
       <FAQ />
       <Biography />
