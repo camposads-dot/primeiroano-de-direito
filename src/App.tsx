@@ -588,20 +588,65 @@ const FAQ = () => {
 };
 
 const Biography = () => (
-  <section className="py-24 px-4 bg-zinc-950">
-    <div className="container mx-auto max-w-4xl bg-zinc-900 rounded-[3rem] p-12 border border-white/10 text-center">
-      <div className="w-32 h-32 bg-zinc-800 rounded-full mx-auto mb-8 border-4 border-red-600 overflow-hidden shadow-2xl">
-        <img ="/apresentacao.jpg" alt="Natan Campos" className="w-full h-full object-cover" />
-      </div>
-      <h2 className="text-4xl font-black uppercase mb-4 text-white">Opa! Muito prazer 👋</h2>
-      <p className="text-zinc-400 text-lg font-bold italic leading-relaxed max-w-2xl mx-auto">
-        Me chamo <span className="text-white">Natan Campos</span>. Estou no 7º período de Direito e ajudo calouros a entenderem a base do Direito de forma clara e organizada.
-        Estudei na <span className="text-white">PUC/RS</span> uma das melhores universidades privadas do Brasil, e minha missão é tornar sua jornada de aprendizagem <span className="text-white"> mais simples, leve e eficiente.</span> 
-      </p>
-      <div className="mt-8 flex justify-center gap-6 text-zinc-500 uppercase font-black text-[10px] tracking-[0.2em]">
-        <span>7 Dias de Garantia</span>
-        <span>Compra Segura</span>
-        <Instagram size={16} className="text-red-600" />
+  <section className="py-24 px-6 bg-black">
+    <div className="container mx-auto max-w-4xl">
+      <div className="bg-zinc-900/40 border border-white/10 rounded-[3rem] p-8 md:p-16 relative overflow-hidden shadow-2xl">
+        
+        {/* Foto com Glow de Autoridade */}
+        <div className="flex justify-center mb-10">
+          <div className="relative">
+            <div className="absolute inset-0 bg-red-600 blur-2xl opacity-20 rounded-full"></div>
+            <div className="w-32 h-32 md:w-44 md:h-44 rounded-full border-2 border-red-600 p-1 relative z-10">
+              <img 
+                src="/natan.png" 
+                alt="Natan Campos"
+                className="w-full h-full rounded-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Texto de Alta Conversão */}
+        <div className="text-center space-y-8">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">
+            OPA! MUITO PRAZER 👋
+          </h2>
+          
+          <div className="space-y-6 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-zinc-200 font-medium leading-relaxed italic">
+              Me chamo <span className="text-white font-black not-italic underline decoration-red-600 underline-offset-4">Natan Campos</span>. 
+              Atualmente no <span className="text-white font-black">7º período de Direito</span>, já ajudei mais de 400 calouros a dominarem a base do curso sem termos técnicos complicados.
+            </p>
+            
+            <p className="text-zinc-500 text-lg font-medium leading-relaxed">
+              Minha missão é clara: <span className="text-zinc-300 font-bold italic">economizar o seu tempo.</span> Estudei na <span className="text-zinc-300 font-bold">PUC/RS</span> e desenvolvi uma estratégia prática para você aprender em 7 dias o que a faculdade tenta ensinar em meses.
+            </p>
+          </div>
+
+          {/* Social Proof e Garantia */}
+          <div className="pt-10 flex flex-col items-center gap-8 border-t border-white/5">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+              <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-zinc-400">
+                <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
+                Método Validado
+              </div>
+              <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-zinc-400">
+                <span className="w-2 h-2 bg-red-600 rounded-full"></span>
+                +400 Alunos Satisfeitos
+              </div>
+            </div>
+
+            <a 
+              href="https://instagram.com/nataneodireito" 
+              target="_blank" 
+              className="flex items-center gap-3 bg-zinc-800/50 hover:bg-zinc-800 px-6 py-3 rounded-full border border-white/10 transition-all group"
+            >
+              <Instagram size={20} className="group-hover:text-red-500 transition-colors" />
+              <span className="text-sm font-bold text-zinc-300 group-hover:text-white">@nataneodireito</span>
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
