@@ -96,68 +96,85 @@ const Hero = () => (
 const Solution = () => {
   const [activeTab, setActiveTab] = useState(1);
 
+  const features = {
+    1: [
+      "Sequência lógica sem complicação.",
+      "Clareza e segurança total.",
+      "Esquemas Simplificados.",
+      "Plano de Estudo incluso."
+    ],
+    2: [
+      "Exemplos Práticos",
+      "Associação com o Código",
+      "Espaço para anotações",
+      "Simulado de prova no final"
+    ]
+  };
+
   return (
-    <section className="py-20 bg-black text-white border-y border-white/5">
+    <section className="py-16 bg-black text-white border-y border-white/5">
       <div className="container mx-auto max-w-4xl px-4 flex flex-col items-center">
-        <h2 className="text-3xl md:text-5xl font-black uppercase text-center mb-10 italic">
-          O QUE MUDA NO SEU <span className="text-red-600">ESTUDO?</span>
+        <h2 className="text-3xl md:text-5xl font-black uppercase text-center mb-10 italic leading-tight">
+          O QUE MUDA NO SEU <span className="text-brand-red">ESTUDO?</span>
         </h2>
 
-        <div className="flex p-1 bg-zinc-900 rounded-2xl border border-white/10 mb-12">
+        {/* Abas */}
+        <div className="flex p-1 bg-zinc-900 rounded-2xl border border-white/10 mb-10">
           <button 
             onClick={() => setActiveTab(1)}
-            className={`px-8 py-3 rounded-xl font-black uppercase text-xs transition-all ${activeTab === 1 ? 'bg-red-600 text-white' : 'text-zinc-500'}`}
+            className={`px-6 py-3 rounded-xl font-black uppercase text-[10px] transition-all ${activeTab === 1 ? 'bg-brand-red text-white' : 'text-zinc-500'}`}
           >
             E-BOOK 01
           </button>
           <button 
             onClick={() => setActiveTab(2)}
-            className={`px-8 py-3 rounded-xl font-black uppercase text-xs transition-all ${activeTab === 2 ? 'bg-red-600 text-white' : 'text-zinc-500'}`}
+            className={`px-6 py-3 rounded-xl font-black uppercase text-[10px] transition-all ${activeTab === 2 ? 'bg-brand-red text-white' : 'text-zinc-500'}`}
           >
             E-BOOK 02
           </button>
         </div>
 
-        <div className="w-56 md:w-72 aspect-[3/4] rounded-xl overflow-hidden relative shadow-2xl mb-8">
-           <div className="absolute inset-0 bg-red-600/20 blur-2xl rounded-full"></div>
-           <img 
-            src={activeTab === 1 ? "/ebook1.png" : "/ebook2.png"} 
-            alt="Capa Ebook" 
-            className="w-full h-full object-cover rounded-xl border border-white/10 shadow-2xl relative z-10"
-          />
+        {/* MÍDIA LADO A LADO (MESMO NO CELULAR) */}
+        <div className="grid grid-cols-2 gap-3 w-full mb-10 items-start">
+          {/* Lado Esquerdo: Capa */}
+          <div className="relative group">
+             <div className="absolute inset-0 bg-brand-red/10 blur-2xl rounded-full"></div>
+             <img 
+               src={activeTab === 1 ? "/ebook1.png" : "/ebook2.png"} 
+               alt="Capa Ebook" 
+               className="w-full aspect-[3/4] object-cover rounded-lg border border-white/10 shadow-2xl relative z-10"
+             />
+          </div>
+
+          {/* Lado Direito: Vídeo Retrato */}
+          <div className="relative w-full aspect-[9/16] bg-zinc-900 rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+             <iframe 
+               src={activeTab === 1 ? "LINK_DO_VIDEO_1" : "LINK_DO_VIDEO_2"}
+               className="w-full h-full object-cover"
+               allowFullScreen
+               title="Demonstração"
+             ></iframe>
+          </div>
         </div>
 
-        <div className="w-full max-w-md space-y-3">
-          {activeTab === 1 ? (
-            <>
-              <div className="flex items-center gap-3 bg-zinc-900/50 p-4 rounded-xl border border-white/5">
-                <CheckCircle2 size={16} className="text-red-600 shrink-0" />
-                <p className="text-sm font-bold text-zinc-300">Acesso a uma sequência lógica sem complicação.</p>
-              </div>
-              <div className="flex items-center gap-3 bg-zinc-900/50 p-4 rounded-xl border border-white/5">
-                <CheckCircle2 size={16} className="text-red-600 shrink-0" />
-                <p className="text-sm font-bold text-zinc-300">Clareza e segurança para acompanhar a faculdade.</p>
-              </div>
-            </>
-          ) : (
-            <div className="bg-zinc-900/50 p-5 rounded-xl border border-white/5">
-              <ul className="space-y-3">
-                {[
-                  "Esquemas Simplificados",
-                  "Exemplos Práticos",
-                  "Associação com o Código",
-                  "Espaço para anotações",
-                  "Plano de Estudo incluso",
-                  "Simulado de prova no final"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3 text-xs font-black uppercase text-zinc-300 tracking-tight">
-                    <div className="w-1.5 h-1.5 bg-red-600 rounded-full" /> {item}
-                  </li>
-                ))}
-              </ul>
+        {/* BENEFÍCIOS LADO A LADO (2 COLUNAS NO MOBILE) */}
+        <div className="grid grid-cols-2 gap-2 w-full">
+          {(activeTab === 1 ? features[1] : features[2]).map((item, index) => (
+            <div 
+              key={index} 
+              className="flex flex-col gap-2 bg-zinc-900/40 p-3 rounded-lg border border-white/5"
+            >
+              <CheckCircle2 size={14} className="text-brand-red shrink-0" />
+              <p className="text-[10px] font-bold text-zinc-300 uppercase tracking-tighter leading-tight">
+                {item}
+              </p>
             </div>
-          )}
+          ))}
         </div>
+
+        <Button featured={true} className="w-full mt-10 py-5 text-sm">
+          GARANTIR ACESSO COMPLETO
+        </Button>
       </div>
     </section>
   );
