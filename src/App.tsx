@@ -321,7 +321,31 @@ const ExclusiveBonus = () => {
 };
 
 const Testimonials = () => {
-  // ... (mantenha a lista de reviews igual)
+  // O ERRO ESTAVA AQUI: A lista 'reviews' precisa existir para o .map funcionar
+  const reviews = [
+    {
+      name: "Lucas Silva",
+      initial: "L",
+      stars: 5,
+      text: "O material é direto ao ponto. Consegui entender em uma semana o que o professor enrolou o mês todo.",
+      color: "bg-red-600"
+    },
+    {
+      name: "Mariana Costa",
+      initial: "M",
+      stars: 5,
+      text: "Os esquemas facilitam demais a revisão para as provas. Vale cada centavo!",
+      color: "bg-zinc-700"
+    },
+    {
+      name: "Ricardo Alves",
+      initial: "R",
+      stars: 5,
+      text: "Finalmente alguém que explica Direito sem usar palavras difíceis o tempo todo.",
+      color: "bg-blue-600"
+    }
+  ];
+
   return (
     <section className="py-20 bg-black text-white selection:bg-red-600 overflow-hidden">
       <div className="container mx-auto px-4 mb-12 text-center">
@@ -329,13 +353,15 @@ const Testimonials = () => {
           QUEM COMPROU <span className="text-red-600">APROVOU...</span>
         </h2>
       </div>
+      
       <div className="w-full relative">
+        {/* Adicionei 'flex' e 'overflow-x-auto' para o scroll lateral funcionar */}
         <div className="flex gap-6 overflow-x-auto pb-8 px-[10%] snap-x snap-mandatory scrollbar-hide">
           {reviews.map((review, index) => (
-            <div key={index} className="flex-shrink-0 w-[80%] md:w-[400px] snap-center bg-zinc-900 p-8 rounded-3xl border border-white/5 shadow-2xl">
+            <div key={index} className="flex-shrink-0 w-[85%] md:w-[400px] snap-center bg-zinc-900 p-8 rounded-3xl border border-white/5 shadow-2xl">
               <div className="flex items-center gap-4 mb-6">
-                <div className={`w-14 h-14 rounded-full flex items-center justify-center ${review.color} shadow-inner`}>
-                  <span className="text-2xl font-black text-white uppercase">{review.initial}</span>
+                <div className={`w-14 h-14 rounded-full flex items-center justify-center ${review.color} shadow-inner text-white font-black uppercase text-2xl`}>
+                  {review.initial}
                 </div>
                 <div>
                   <h3 className="text-lg font-black text-white uppercase tracking-tight">{review.name}</h3>
