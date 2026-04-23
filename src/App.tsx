@@ -194,16 +194,16 @@ const Solution = () => {
 };
 
 const ScrollingPhotos = () => {
+  // 1. LISTA DAS SUAS 5 FOTOS ÚNICAS
   const photoData = [
-    { id: 1, title: "Simulado de Prova" },
-    { id: 2, title: "Questões Comentadas" },
-    { id: 3, title: "Esquemas Práticos" },
-    { id: 4, title: "Resumos de Aula" },
-    { id: 5, title: "Dicas de Estudo" },
-    { id: 6, title: "Base do Direito" },
+    { id: 1, title: "Sumário Interativo" },
+    { id: 2, title: "Associação com o Código" },
+    { id: 3, title: "Espaço para Anotações" },
+    { id: 4, title: "Plano de Estudo" },
+    { id: 5, title: "Simulado de Prova" },
   ];
 
-  // Duplicamos a lista para o scroll ser infinito e não ter "buracos"
+  // Duplicamos a lista apenas para criar o efeito visual de esteira sem fim
   const displayPhotos = [...photoData, ...photoData, ...photoData];
 
   return (
@@ -211,10 +211,11 @@ const ScrollingPhotos = () => {
       <motion.div 
         className="flex gap-8"
         animate={{ 
-          x: [0, -1920] // Faz a linha correr para a esquerda
+          // Ajustamos o valor do X para o tamanho de 5 fotos + gaps
+          x: [0, -1400] 
         }}
         transition={{ 
-          duration: 30, 
+          duration: 25, // Velocidade um pouco mais rápida por serem menos fotos
           repeat: Infinity, 
           ease: "linear" 
         }}
@@ -222,16 +223,19 @@ const ScrollingPhotos = () => {
       >
         {displayPhotos.map((item, i) => (
           <div key={i} className="flex-shrink-0 flex flex-col items-center w-64">
+            {/* TÍTULO ÚNICO PARA CADA UMA DAS 5 FOTOS */}
             <span className="text-red-500 font-black mb-4 uppercase text-[10px] tracking-[0.2em] text-center">
               {item.title}
             </span>
+            
             <div className="w-full h-80 bg-zinc-900 rounded-2xl overflow-hidden border border-white/10 shadow-xl transition-transform hover:scale-105 duration-500 group">
+              {/* BUSCA foto1.png, foto2.png, foto3.png, foto4.png, foto5.png */}
               <img 
-                src={`/foto${item.id}.png`} 
+                src={`/foto${item.id}.jpg`} 
                 alt={item.title} 
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                 onError={(e) => {
-                  e.currentTarget.src = "https://via.placeholder.com/256x320/18181b/ffffff?text=Carregando...";
+                  e.currentTarget.src = "https://via.placeholder.com/256x320/18181b/ffffff?text=Adicione+a+Foto";
                 }}
               />
             </div>
