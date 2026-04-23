@@ -99,7 +99,8 @@ const Solution = () => {
   const content = {
     1: {
       image: "/ebook1.png",
-      video: "LINK_DO_VIDEO_1",
+      // Use o formato /embed/ do YouTube para evitar bloqueios e barras de rolagem
+      video: "https://www.youtube.com/embed/0esmfaCBjOI?si=Avj9RzKA86KORTpJ",
       features: [
         "Sequência lógica sem complicação.",
         "Exemplos Práticos",
@@ -109,7 +110,7 @@ const Solution = () => {
     },
     2: {
       image: "/ebook2.png",
-      video: "LINK_DO_VIDEO_2",
+      video: "https://www.youtube.com/embed/pzQFMvp9LRk?si=gZv11brS-zBC-y5o",
       features: [
         "Esquemas Simplificados",
         "Exemplos Práticos",
@@ -144,7 +145,7 @@ const Solution = () => {
           </button>
         </div>
 
-        {/* MÍDIA ALINHADA (Mesmo Tamanho) */}
+        {/* MÍDIA ALINHADA (Mesmo Tamanho e Sem Rolagem) */}
         <div className="grid grid-cols-2 gap-4 w-full mb-10 items-center">
           {/* Capa do Ebook */}
           <div className="relative">
@@ -156,11 +157,12 @@ const Solution = () => {
              />
           </div>
 
-          {/* Vídeo (Forçado a ter a mesma proporção 3/4 da capa) */}
+          {/* Vídeo YouTube Estático */}
           <div className="relative w-full aspect-[3/4] bg-zinc-900 rounded-lg overflow-hidden border border-white/10 shadow-2xl">
              <iframe 
                src={content[activeTab].video}
-               className="w-full h-full object-cover"
+               className="absolute top-0 left-0 w-full h-full border-0"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                allowFullScreen
                title="Demonstração"
              ></iframe>
