@@ -455,6 +455,23 @@ const Offers = () => (
   </section>
 );
 
+const QuickSummary = () => (
+  <section className="py-20 px-4 bg-black">
+    <div className="container mx-auto max-w-2xl bg-zinc-900/40 border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-2xl">
+      <h2 className="text-3xl md:text-4xl font-black uppercase mb-1 leading-none text-white tracking-tighter">Não leu tudo?</h2>
+      <h3 className="text-3xl md:text-4xl font-black uppercase mb-10 text-red-600 leading-none tracking-tighter">Resumo pra você:</h3>
+      <div className="space-y-8 text-zinc-400 font-bold italic text-lg leading-snug">
+        <p>Se quer aprender em <span className="text-white">7 dias</span> o que levam <span className="text-white">6 meses</span>, esse método é para você.</p>
+        <div className="border-l-4 border-red-600 pl-6 py-3 bg-white/5 rounded-r-2xl">
+          <p className="text-zinc-200 not-italic font-medium text-base">"Um guia oficial para acelerar seus estudos e dominar a base da faculdade."</p>
+        </div>
+        <p className="text-base font-medium text-zinc-500">Garante hoje <span className="text-white font-black">85% de desconto</span> + bônus. <br/>Pagamento único e 7 dias de garantia.</p>
+      </div>
+      <button className="w-full mt-10 py-6 bg-red-600 hover:bg-red-700 text-white font-black text-xl rounded-2xl uppercase transition-all">OK, ME CONVENCEU!</button>
+    </div>
+  </section>
+);
+
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const questions = [
@@ -519,6 +536,7 @@ export default function App() {
       <ExclusiveBonus />
       <Testimonials />
       <Offers />
+      <QuickSummary />
       <FAQ />
       <Biography />
       <footer className="py-12 border-t border-white/5 text-center text-[10px] font-black uppercase text-zinc-700 tracking-widest">
