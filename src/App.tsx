@@ -240,6 +240,85 @@ const TargetAudience = () => (
   </section>
 );
 
+const ExclusiveBonus = () => {
+  const bonuses = [
+    {
+      title: "Teoria Pura do Direito - Hans Kelsen",
+      description: "A obra mais importante para compreender o Direito em sua essência.",
+      image: "/bonus1.png" // Substitua pelo caminho da sua imagem
+    },
+    {
+      title: "Fatores de Mudança no Direito",
+      description: "Entenda porque as leis mudam, quais forças influenciam o sistema jurídico.",
+      image: "/bonus2.png"
+    },
+    {
+      title: "As Escolas do Direito",
+      description: "O Direito não é uma ciência exata, pois existem diversas formas de interpretação, conheça as escolas que influenciaram o ordenamento que conhecemos hoje.",
+      image: "/bonus3.png"
+    },
+    {
+      title: "Direito Natural VS Direito Positivo",
+      description: "O debate entre Direito Natural e Direito Positivo não é apenas uma questão filosófica, mas também prática, já que influencia diretamente a forma como os sistemas jurídicos se estruturam e como os direitos individuais são protegidos ou limitados em diferentes sociedades.",
+      image: "/bonus4.png"
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-black text-white">
+      <div className="container mx-auto max-w-4xl px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-black uppercase mb-4">
+            BÔNUS <span className="text-brand-red">EXCLUSIVOS</span>
+          </h2>
+          <p className="text-zinc-400 font-medium italic">
+            Materiais estratégicos para acelerar sua jornada acadêmica.
+          </p>
+        </div>
+
+        {/* Grid de Bônus: 2 colunas no desktop, 1 no mobile */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {bonuses.map((bonus, index) => (
+            <div 
+              key={index} 
+              className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 flex items-center gap-5 hover:border-green-500/30 transition-all group"
+            >
+              {/* Miniatura da Imagem */}
+              <div className="w-24 h-24 shrink-0 rounded-xl overflow-hidden border border-white/10">
+                <img 
+                  src={bonus.image} 
+                  alt={bonus.title} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Texto do Bônus */}
+              <div className="flex flex-col">
+                <span className="text-[10px] font-black text-green-500 uppercase tracking-[0.2em] mb-1">
+                  Grátis Hoje
+                </span>
+                <h3 className="text-lg font-black uppercase leading-tight mb-2">
+                  {bonus.title}
+                </h3>
+                <p className="text-xs text-zinc-500 font-medium leading-relaxed">
+                  {bonus.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Botão de Chamada Final */}
+        <div className="mt-16 text-center">
+          <Button featured={true} className="w-full md:w-auto px-16 py-6 text-xl red-glow">
+            QUERO O COMBO COM TODOS OS BÔNUS
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Offers = () => (
   <section className="py-24 px-4 relative bg-zinc-950">
      <div className="container mx-auto max-w-7xl">
