@@ -4,7 +4,8 @@ import {
   CheckCircle2, 
   Instagram, 
   ArrowRight,
-  ChevronDown
+  ChevronDown,
+  Star // Adicione este aqui
 } from 'lucide-react';
 
 // --- Components ---
