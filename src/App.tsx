@@ -319,6 +319,96 @@ const ExclusiveBonus = () => {
   );
 };
 
+const Testimonials = () => {
+  const reviews = [
+    {
+      name: "Lucas",
+      initial: "L",
+      color: "bg-purple-600", // Cor do círculo
+      stars: 5,
+      text: "\"Os esquemas facilitam muito a memorização. Parabéns pelo método!\""
+    },
+    {
+      name: "Mariana",
+      initial: "M",
+      color: "bg-blue-600",
+      stars: 5,
+      text: "\"Finalmente entendi a lógica por trás de Introdução ao Estudo do Direito! Recomendadíssimo.\""
+    },
+    {
+      name: "João",
+      initial: "J",
+      color: "bg-green-600",
+      stars: 5,
+      text: "\"O cronograma de 10 dias salvou meu semestre. Consegui revisar tudo a tempo.\""
+    },
+    {
+      name: "Ana",
+      initial: "A",
+      color: "bg-red-600",
+      stars: 4,
+      text: "\"Material muito direto ao ponto. Ótimo para quem trabalha e estuda.\""
+    },
+    {
+      name: "Pedro",
+      initial: "P",
+      color: "bg-yellow-600",
+      stars: 5,
+      text: "\"A associação com o Código Civil me ajudou a entender a prática da lei.\""
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-black text-white selection:bg-red-600 overflow-hidden">
+      <div className="container mx-auto px-4 mb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-black uppercase mb-4 italic leading-tight">
+          QUEM COMPROU <span className="text-brand-red">APROVOU...</span>
+        </h2>
+      </div>
+
+      {/* Carrossel de Depoimentos */}
+      <div className="w-full relative">
+        {/* Container com scroll horizontal */}
+        <div className="flex gap-6 overflow-x-auto pb-8 px-[10%] snap-x snap-mandatory scrollbar-hide">
+          {reviews.map((review, index) => (
+            <div 
+              key={index} 
+              className="flex-shrink-0 w-[80%] md:w-[400px] snap-center bg-zinc-900 p-8 rounded-3xl border border-white/5 shadow-2xl"
+            >
+              {/* Cabeçalho do Card */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`w-14 h-14 rounded-full flex items-center justify-center ${review.color} shadow-inner`}>
+                  <span className="text-2xl font-black text-white uppercase">{review.initial}</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-white uppercase tracking-tight">{review.name}</h3>
+                  <div className="flex gap-0.5 text-brand-yellow">
+                    {[...Array(review.stars)].map((_, s) => (
+                      <Star key={s} size={16} fill="currentColor" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Texto do Depoimento */}
+              <p className="text-zinc-300 italic font-medium leading-relaxed">
+                {review.text}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Indicador Discreto de Rolagem (Igual ao print) */}
+        <div className="text-center mt-2">
+          <p className="text-zinc-600 font-bold uppercase text-[10px] tracking-[0.2em] italic">
+            Arrastar para o lado →
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Offers = () => (
   <section className="py-24 px-4 relative bg-zinc-950">
      <div className="container mx-auto max-w-7xl">
@@ -481,6 +571,7 @@ export default function App() {
       <ScrollingPhotos />
       <TargetAudience />
       <ExclusiveBonus />
+      <Testimonials />
       <Offers />
       <FAQ />
       <Biography />
