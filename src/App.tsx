@@ -591,11 +591,12 @@ const Biography = () => (
   <section className="py-24 px-4 bg-zinc-950">
     <div className="container mx-auto max-w-4xl bg-zinc-900 rounded-[3rem] p-12 border border-white/10 text-center">
       <div className="w-32 h-32 bg-zinc-800 rounded-full mx-auto mb-8 border-4 border-red-600 overflow-hidden shadow-2xl">
-        <img src="https://picsum.photos/seed/legal/400/400" alt="Natan Campos" className="w-full h-full object-cover" />
+        <img ="/apresentacao.jpg" alt="Natan Campos" className="w-full h-full object-cover" />
       </div>
       <h2 className="text-4xl font-black uppercase mb-4 text-white">Opa! Muito prazer 👋</h2>
       <p className="text-zinc-400 text-lg font-bold italic leading-relaxed max-w-2xl mx-auto">
-        Me chamo <span className="text-white">Natan Campos</span>. Estou no 6º período de Direito e ajudo calouros a entenderem a base do Direito de forma clara e organizada.
+        Me chamo <span className="text-white">Natan Campos</span>. Estou no 7º período de Direito e ajudo calouros a entenderem a base do Direito de forma clara e organizada.
+        Estudei na <span className="text-white">PUC/RS</span> uma das melhores universidades privadas do Brasil, e minha missão é tornar sua jornada de aprendizagem <span className="text-white"> mais simples, leve e eficiente.</span> 
       </p>
       <div className="mt-8 flex justify-center gap-6 text-zinc-500 uppercase font-black text-[10px] tracking-[0.2em]">
         <span>7 Dias de Garantia</span>
