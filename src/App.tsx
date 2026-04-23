@@ -598,7 +598,7 @@ const Biography = () => (
             <div className="absolute inset-0 bg-red-600 blur-2xl opacity-20 rounded-full"></div>
             <div className="w-32 h-32 md:w-44 md:h-44 rounded-full border-2 border-red-600 p-1 relative z-10">
               <img 
-                src="/natan.png" 
+                public= "perfil.png"
                 alt="Natan Campos"
                 className="w-full h-full rounded-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
               />
