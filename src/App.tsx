@@ -5,7 +5,7 @@ import {
   Instagram, 
   ArrowRight,
   ChevronDown,
-  Star 
+  Star // Adicione este aqui
 } from 'lucide-react';
 
 // --- Components ---
@@ -97,45 +97,97 @@ const Hero = () => (
 const Solution = () => {
   const [activeTab, setActiveTab] = useState(1);
 
-  const content: Record<number, any> = {
+  const content = {
     1: {
       image: "/ebook1.png",
-      video: "https://www.youtube.com/embed/0esmfaCBjOI",
-      features: ["Sequência lógica sem complicação.", "Exemplos Práticos", "Associação com o Código", "Clareza e segurança total."]
+      // Use o formato /embed/ do YouTube para evitar bloqueios e barras de rolagem
+      video: "https://www.youtube.com/embed/0esmfaCBjOI?si=Avj9RzKA86KORTpJ",
+      features: [
+        "Sequência lógica sem complicação.",
+        "Exemplos Práticos",
+        "Associação com o Código",
+        "Clareza e segurança total."
+      ]
     },
     2: {
       image: "/ebook2.png",
-      video: "https://www.youtube.com/embed/pzQFMvp9LRk",
-      features: ["Esquemas Simplificados", "Exemplos Práticos", "Associação com o Código", "Simulado de prova no final"]
+      video: "https://www.youtube.com/embed/pzQFMvp9LRk?si=gZv11brS-zBC-y5o",
+      features: [
+        "Esquemas Simplificados",
+        "Exemplos Práticos",
+        "Associação com o Código",
+        "Espaço para anotações",
+        "Plano de Estudo incluso",
+        "Simulado de prova no final de cada disciplina"
+      ]
     }
   };
 
   return (
     <section className="py-16 bg-black text-white border-y border-white/5">
       <div className="container mx-auto max-w-4xl px-4 flex flex-col items-center">
-        <h2 className="text-3xl md:text-5xl font-black uppercase text-center mb-10 italic leading-tight text-white">
-          O QUE MUDA NO SEU <span className="text-red-600">ESTUDO?</span>
+        <h2 className="text-3xl md:text-5xl font-black uppercase text-center mb-10 italic leading-tight">
+          O QUE MUDA NO SEU <span className="text-brand-red">ESTUDO?</span>
         </h2>
+
+        {/* Abas */}
         <div className="flex p-1 bg-zinc-900 rounded-2xl border border-white/10 mb-10">
           <button 
             onClick={() => setActiveTab(1)}
-            className={`px-6 py-3 rounded-xl font-black uppercase text-[10px] transition-all ${activeTab === 1 ? 'bg-red-600 text-white' : 'text-zinc-500'}`}
+            className={`px-6 py-3 rounded-xl font-black uppercase text-[10px] transition-all ${activeTab === 1 ? 'bg-brand-red text-white' : 'text-zinc-500'}`}
           >
             E-BOOK 01
           </button>
           <button 
             onClick={() => setActiveTab(2)}
-            className={`px-6 py-3 rounded-xl font-black uppercase text-[10px] transition-all ${activeTab === 2 ? 'bg-red-600 text-white' : 'text-zinc-500'}`}
+            className={`px-6 py-3 rounded-xl font-black uppercase text-[10px] transition-all ${activeTab === 2 ? 'bg-brand-red text-white' : 'text-zinc-500'}`}
           >
             E-BOOK 02
           </button>
         </div>
+
+        {/* MÍDIA ALINHADA (Mesmo Tamanho e Sem Rolagem) */}
         <div className="grid grid-cols-2 gap-4 w-full mb-10 items-center">
-          <img src={content[activeTab].image} className="w-full aspect-[3/4] object-cover rounded-lg border border-white/10 shadow-2xl" alt="Capa" />
+          {/* Capa do Ebook */}
+          <div className="relative">
+             <div className="absolute inset-0 bg-brand-red/10 blur-2xl rounded-full"></div>
+             <img 
+               src={content[activeTab].image} 
+               alt="Capa Ebook" 
+               className="w-full aspect-[3/4] object-cover rounded-lg border border-white/10 shadow-2xl relative z-10"
+             />
+          </div>
+
+          {/* Vídeo YouTube Estático */}
           <div className="relative w-full aspect-[3/4] bg-zinc-900 rounded-lg overflow-hidden border border-white/10 shadow-2xl">
-             <iframe src={content[activeTab].video} className="absolute top-0 left-0 w-full h-full border-0" allowFullScreen title="Demonstração"></iframe>
+             <iframe 
+               src={content[activeTab].video}
+               className="absolute top-0 left-0 w-full h-full border-0"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+               allowFullScreen
+               title="Demonstração"
+             ></iframe>
           </div>
         </div>
+
+        {/* BENEFÍCIOS ATUALIZADOS */}
+        <div className="grid grid-cols-2 gap-3 w-full">
+          {content[activeTab].features.map((item, index) => (
+            <div 
+              key={index} 
+              className="flex flex-col gap-2 bg-zinc-900/40 p-4 rounded-lg border border-white/5 min-h-[80px] justify-center"
+            >
+              <CheckCircle2 size={16} className="text-brand-red shrink-0" />
+              <p className="text-[11px] font-bold text-zinc-200 uppercase tracking-tight leading-tight">
+                {item}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <Button featured={true} className="w-full mt-10 py-5 text-sm">
+          GARANTIR COMBO COMPLETO
+        </Button>
       </div>
     </section>
   );
@@ -146,7 +198,9 @@ const ScrollingPhotos = () => (
     <div className="flex animate-scroll whitespace-nowrap gap-8">
       {[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map((num, i) => (
         <div key={i} className="flex-shrink-0 flex flex-col items-center">
-          <span className="text-red-500 font-black mb-4 uppercase text-[10px] tracking-[0.2em]">Simulado de Prova</span>
+          <span className="text-red-500 font-black mb-4 uppercase text-[10px] tracking-[0.2em]">
+            Simulado de Prova
+          </span>
           <div className="w-64 h-80 bg-zinc-900 rounded-2xl overflow-hidden border border-white/10 shadow-xl transition-transform hover:scale-105 duration-500">
             <img src={`/foto${num}.png`} alt="Review" className="w-full h-full object-cover" />
           </div>
@@ -158,45 +212,141 @@ const ScrollingPhotos = () => (
 
 const TargetAudience = () => (
   <section className="py-24 px-4 flex flex-col items-center bg-black">
-    <SectionTitle title="Para quem é esse combo?" subtitle="Identifique sua fase e veja como podemos acelerar seu aprendizado." />
-    <div className="max-w-3xl w-full space-y-6 text-white">
-      {[
-        { t: "Estudantes do 2° Período", d: "Que querem dar continuidade ao estudo com mais segurança e clareza." },
-        { t: "Calouros de Direito", d: "Ainda não entendem as regras básicas e se sentem perdidos nos primeiros dias." },
-        { t: "Veteranos de Revisão", d: "Que precisam revisar o conteúdo inicial com precisão, lógica e autoridade." }
-      ].map((item, i) => (
-        <div key={i} className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5">
-          <h3 className="text-red-500 font-black text-xl mb-2 uppercase">{item.t}</h3>
-          <p className="text-zinc-300 italic font-medium leading-relaxed">{item.d}</p>
-        </div>
-      ))}
+    <SectionTitle 
+      title="Para quem é esse combo?" 
+      subtitle="Identifique sua fase e veja como podemos acelerar seu aprendizado." 
+    />
+    <div className="max-w-3xl w-full space-y-6">
+      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5 hover:bg-zinc-900 transition-colors">
+        <h3 className="text-red-500 font-black text-xl mb-2 uppercase">Estudantes do 2° Período</h3>
+        <p className="text-zinc-300 italic font-medium leading-relaxed">
+          Que querem dar continuidade ao estudo com mais segurança e clareza.
+        </p>
+      </div>
+
+      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5 hover:bg-zinc-900 transition-colors">
+        <h3 className="text-red-500 font-black text-xl mb-2 uppercase">Calouros de Direito</h3>
+        <p className="text-zinc-300 italic font-medium leading-relaxed">
+          Ainda não entendem as regras básicas e se sentem perdidos nos primeiros dias.
+        </p>
+      </div>
+
+      <div className="bg-zinc-900/50 border-l-4 border-red-600 p-8 rounded-r-2xl border border-white/5 hover:bg-zinc-900 transition-colors">
+        <h3 className="text-red-500 font-black text-xl mb-2 uppercase">Veteranos de Revisão</h3>
+        <p className="text-zinc-300 italic font-medium leading-relaxed">
+          Que precisam revisar o conteúdo inicial com precisão, lógica e autoridade.
+        </p>
+      </div>
     </div>
   </section>
 );
 
 const ExclusiveBonus = () => {
   const bonuses = [
-    { title: "Teoria Pura do Direito", description: "Compreenda o Direito em sua essência.", image: "/bonus1.png" },
-    { title: "Fatores de Mudança", description: "Entenda porque as leis mudam no sistema jurídico.", image: "/bonus2.png" },
-    { title: "As Escolas do Direito", description: "Conheça as escolas que influenciaram o ordenamento.", image: "/bonus3.png" },
-    { title: "Direito Natural VS Positivo", description: "O debate que influencia os sistemas jurídicos.", image: "/bonus4.png" }
+    {
+      title: "Teoria Pura do Direito - Hans Kelsen",
+      description: "A obra mais importante para compreender o Direito em sua essência.",
+      image: "/bonus1.png" // Substitua pelo caminho da sua imagem
+    },
+    {
+      title: "Fatores de Mudança no Direito",
+      description: "Entenda porque as leis mudam, quais forças influenciam o sistema jurídico.",
+      image: "/bonus2.png"
+    },
+    {
+      title: "As Escolas do Direito",
+      description: "O Direito não é uma ciência exata, pois existem diversas formas de interpretação, conheça as escolas que influenciaram o ordenamento que conhecemos hoje.",
+      image: "/bonus3.png"
+    },
+    {
+      title: "Direito Natural VS Direito Positivo",
+      description: "O debate entre Direito Natural e Direito Positivo não é apenas uma questão filosófica, mas também prática, já que influencia diretamente a forma como os sistemas jurídicos se estruturam e como os direitos individuais são protegidos ou limitados em diferentes sociedades.",
+      image: "/bonus4.png"
+    }
   ];
 
   return (
     <section className="py-20 bg-black text-white">
       <div className="container mx-auto max-w-4xl px-4">
-        <h2 className="text-center text-4xl md:text-5xl font-black uppercase mb-12">BÔNUS <span className="text-red-600">EXCLUSIVOS</span></h2>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-black uppercase mb-4">
+            BÔNUS <span className="text-brand-red">EXCLUSIVOS</span>
+          </h2>
+          <p className="text-zinc-400 font-medium italic">
+            Materiais estratégicos para acelerar sua jornada acadêmica.
+          </p>
+        </div>
+
+        {/* Grid de Bônus: 2 colunas no desktop, 1 no mobile */}
         <div className="grid md:grid-cols-2 gap-6">
           {bonuses.map((bonus, index) => (
-            <div key={index} className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 flex items-center gap-5 hover:border-red-600/30 transition-all group">
-              <div className="w-24 h-24 shrink-0 rounded-xl overflow-hidden border border-white/10 bg-zinc-800">
-                <img src={bonus.image} alt={bonus.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div 
+              key={index} 
+              className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 flex items-center gap-5 hover:border-green-500/30 transition-all group"
+            >
+              {/* Miniatura da Imagem */}
+              <div className="w-24 h-24 shrink-0 rounded-xl overflow-hidden border border-white/10">
+                <img 
+                  src={bonus.image} 
+                  alt={bonus.title} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
-              <div>
-                <span className="text-[10px] font-black text-green-500 uppercase tracking-widest mb-1 block">Grátis Hoje</span>
-                <h3 className="text-lg font-black uppercase leading-tight text-white mb-2">{bonus.title}</h3>
-                <p className="text-xs text-zinc-500 font-medium leading-relaxed">{bonus.description}</p>
+
+              {/* Texto do Bônus */}
+              <div className="flex flex-col">
+                <span className="text-[10px] font-black text-green-500 uppercase tracking-[0.2em] mb-1">
+                  Grátis Hoje
+                </span>
+                <h3 className="text-lg font-black uppercase leading-tight mb-2">
+                  {bonus.title}
+                </h3>
+                <p className="text-xs text-zinc-500 font-medium leading-relaxed">
+                  {bonus.description}
+                </p>
               </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Botão de Chamada Final */}
+        <div className="mt-16 text-center">
+          <Button featured={true} className="w-full md:w-auto px-16 py-6 text-xl red-glow">
+            QUERO O COMBO COM TODOS OS BÔNUS
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Testimonials = () => {
+  // ... (mantenha a lista de reviews igual)
+  return (
+    <section className="py-20 bg-black text-white selection:bg-red-600 overflow-hidden">
+      <div className="container mx-auto px-4 mb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-black uppercase mb-4 italic leading-tight">
+          QUEM COMPROU <span className="text-red-600">APROVOU...</span>
+        </h2>
+      </div>
+      <div className="w-full relative">
+        <div className="flex gap-6 overflow-x-auto pb-8 px-[10%] snap-x snap-mandatory scrollbar-hide">
+          {reviews.map((review, index) => (
+            <div key={index} className="flex-shrink-0 w-[80%] md:w-[400px] snap-center bg-zinc-900 p-8 rounded-3xl border border-white/5 shadow-2xl">
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`w-14 h-14 rounded-full flex items-center justify-center ${review.color} shadow-inner`}>
+                  <span className="text-2xl font-black text-white uppercase">{review.initial}</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-white uppercase tracking-tight">{review.name}</h3>
+                  <div className="flex gap-0.5 text-yellow-500">
+                    {[...Array(review.stars)].map((_, s) => (
+                      <Star key={s} size={16} fill="currentColor" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-zinc-300 italic font-medium leading-relaxed">{review.text}</p>
             </div>
           ))}
         </div>
@@ -205,57 +355,136 @@ const ExclusiveBonus = () => {
   );
 };
 
+const Offers = () => (
+  <section className="py-24 px-4 relative bg-zinc-950">
+     <div className="container mx-auto max-w-7xl">
+      {/* Título em Vermelho conforme solicitado */}
+      <div className="mb-12 text-center">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-6xl font-display font-black tracking-tighter uppercase text-brand-red mb-4"
+        >
+          Escolha seu acesso:
+        </motion.h2>
+        <p className="text-zinc-muted text-base md:text-lg max-w-2xl mx-auto italic font-medium">
+          Invista agora e garanta sua vantagem competitiva desde o 1º dia.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto items-stretch">
+        
+        {/* CARD 1: E-BOOK SEMESTRE 1 (Paleta Vermelha) */}
+        <Card className="flex flex-col h-full border-brand-red/20 hover:border-brand-red/50 transition-all relative overflow-hidden group">
+          {/* Sutil brilho vermelho ao fundo */}
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand-red/5 blur-[80px] group-hover:bg-brand-red/10 transition-colors" />
+          
+          <div className="mb-8 relative z-10">
+            <h3 className="text-2xl font-black mb-1 uppercase text-white">E-Book Semestre 1</h3>
+            <p className="text-[10px] uppercase font-bold text-brand-red tracking-[0.2em] mb-8">
+              Aprenda os primeiros 6 meses de Direito em 7 dias!
+            </p>
+          </div>
+
+          <div className="mb-8 flex items-baseline gap-2 relative z-10">
+             <div className="text-zinc-600 line-through text-sm font-bold">R$ 67,90</div>
+             <div className="text-5xl font-black text-white leading-none">R$ 37,90</div>
+          </div>
+
+          {/* Entrega de valor em Vermelho */}
+          <ul className="space-y-4 mb-10 flex-grow relative z-10">
+            {[
+              "Introdução ao Estudo do Direito",
+              "Ciências Políticas, Estado e Constituição",
+              "Criminologia, Antropologia, Histótia do Direito",
+              "+ 2 Bônus Exclusivos"
+            ].map((item, i) => (
+              <li key={i} className="flex gap-3 items-center text-zinc-300 font-bold text-xs uppercase tracking-tight">
+                <CheckCircle2 size={18} className="text-brand-red" strokeWidth={3} />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <Button primary={true} className="w-full mt-auto py-5 red-glow">
+            COMPRAR INDIVIDUAL
+          </Button>
+        </Card>
+
+        {/* CARD 2: COMBO ESPECIAL (Destaque Amarelo com novos itens) */}
+        <Card featured={true} className="flex flex-col h-full border-brand-yellow/50 scale-105 relative z-20 shadow-[0_0_60px_rgba(234,179,8,0.15)] bg-brand-card">
+          <div className="absolute top-0 right-0 bg-brand-yellow text-black text-[10px] font-black px-6 py-2 uppercase tracking-tighter shadow-xl">
+            Mais Vendido
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-3xl font-black mb-1 uppercase text-white leading-[0.9]">COMBO <br/> <span className="text-brand-yellow">ESPECIAL 2026</span></h3>
+            <p className="text-[10px] uppercase font-bold text-brand-yellow/80 mb-8 tracking-[0.2em]">E-Book 1 + E-Book 2 + 4 Bônus</p>
+          </div>
+
+          <div className="mb-8 flex items-baseline gap-2 leading-none">
+             <div className="text-zinc-500 line-through text-sm font-bold uppercase">De R$ 157,90 por</div>
+             <div className="text-6xl font-black text-brand-yellow leading-none">R$ 57,90</div>
+          </div>
+
+          {/* Novos itens solicitados */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 mb-10 text-[10px] font-black text-white uppercase tracking-tight">
+            {[
+              "Esquemas Simplificados",
+              "Exemplos Práticos",
+              "Associação com o Código",
+              "Espaço para anotações",
+              "Plano de Estudo incluso",
+              "Simulado por disciplina"
+            ].map((feature, i) => (
+              <div key={i} className="flex gap-2 items-center bg-white/5 p-2 rounded-lg border border-white/5">
+                <CheckCircle2 size={14} className="text-brand-yellow shrink-0" strokeWidth={3} />
+                <span>{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          <Button featured={true} className="w-full text-xl py-6 yellow-glow">
+            GARANTIR COMBO COMPLETO
+          </Button>
+        </Card>
+
+      </div>
+    </div>
+  </section>
+);
+
 const QuickSummary = () => (
   <section className="py-20 px-4 bg-black">
-    <div className="container mx-auto max-w-2xl bg-zinc-900/40 border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-2xl">
-      <h2 className="text-3xl md:text-4xl font-black uppercase mb-1 leading-none text-white tracking-tighter">Não leu tudo?</h2>
-      <h3 className="text-3xl md:text-4xl font-black uppercase mb-10 text-red-600 leading-none tracking-tighter">Resumo pra você:</h3>
-      <div className="space-y-8 text-zinc-400 font-bold italic text-lg leading-snug">
-        <p>Se quer aprender em <span className="text-white">7 dias</span> o que levam <span className="text-white">6 meses</span>, esse método é para você.</p>
-        <div className="border-l-4 border-red-600 pl-6 py-3 bg-white/5 rounded-r-2xl">
-          <p className="text-zinc-200 not-italic font-medium">"Um guia oficial para acelerar seus estudos e dominar a base da faculdade."</p>
+    <div className="container mx-auto max-w-2xl bg-zinc-900/30 border border-white/5 p-8 md:p-12 rounded-[2.5rem]">
+      <h2 className="text-3xl md:text-4xl font-black uppercase mb-2 leading-none text-white">
+        Não leu tudo?
+      </h2>
+      <h3 className="text-3xl md:text-4xl font-black uppercase mb-8 text-red-600 leading-none">
+        Resumo pra você:
+      </h3>
+
+      <div className="space-y-6 text-zinc-400 font-bold italic text-lg leading-snug">
+        <p>
+          Se quer aprender em <span className="text-white">7 dias</span> o que levam <span className="text-white">6 meses</span>, esse método é para você.
+        </p>
+
+        <div className="border-l-2 border-red-600 pl-6 py-2 bg-white/5 rounded-r-xl">
+          <p className="text-zinc-300">
+            "Um guia oficial para acelerar seus estudos e dominar a base da faculdade."
+          </p>
         </div>
-        <p className="text-base font-medium text-zinc-500">Garante hoje <span className="text-white font-black">85% de desconto</span> + bônus. <br/>Pagamento único e 7 dias de garantia.</p>
+
+        <p className="text-base">
+          Garante hoje <span className="text-white">85% de desconto</span> + bônus. <br/>
+          Pagamento único e 7 dias de garantia.
+        </p>
       </div>
-      <button className="w-full mt-10 py-6 bg-red-600 hover:bg-red-700 text-white font-black text-xl rounded-2xl uppercase transition-all shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+
+      <Button primary className="w-full mt-10 py-6 text-xl red-glow">
         OK, ME CONVENCEU!
-      </button>
-    </div>
-  </section>
-);
-
-const Testimonials = () => (
-  <section className="py-20 bg-black text-white overflow-hidden">
-    <div className="text-center mb-12"><h2 className="text-4xl font-black uppercase italic">QUEM COMPROU <span className="text-red-600">APROVOU...</span></h2></div>
-    <div className="flex gap-6 overflow-x-auto px-6 pb-10 scrollbar-hide snap-x">
-      {[{n: "Lucas", t: "Os esquemas facilitam muito a memorização.", c: "bg-red-600"}, {n: "Ana", t: "Melhor investimento que fiz no 1° ano.", c: "bg-blue-600"}].map((rev, i) => (
-        <div key={i} className="flex-shrink-0 w-80 bg-zinc-900 p-8 rounded-3xl border border-white/5 snap-center">
-           <div className="flex items-center gap-4 mb-4">
-             <div className={`w-12 h-12 rounded-full flex items-center justify-center font-black ${rev.c}`}>{rev.n[0]}</div>
-             <div className="text-yellow-500 flex gap-1"><Star size={12} fill="currentColor"/> <Star size={12} fill="currentColor"/> <Star size={12} fill="currentColor"/></div>
-           </div>
-           <p className="text-zinc-400 italic">"{rev.t}"</p>
-        </div>
-      ))}
-    </div>
-  </section>
-);
-
-const Offers = () => (
-  <section className="py-24 px-4 bg-zinc-950 text-white text-center">
-    <h2 className="text-4xl md:text-6xl font-black uppercase text-red-600 mb-12">Escolha seu acesso:</h2>
-    <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-      <Card className="flex flex-col border-white/10">
-        <h3 className="text-2xl font-black mb-4 uppercase">E-Book Semestre 1</h3>
-        <div className="text-4xl font-black mb-6">R$ 37,90</div>
-        <Button primary className="w-full">COMPRAR INDIVIDUAL</Button>
-      </Card>
-      <Card className="flex flex-col border-yellow-400 scale-105 bg-yellow-400/5">
-        <div className="bg-yellow-400 text-black text-[10px] font-black py-1 uppercase mb-4">Mais Vendido</div>
-        <h3 className="text-3xl font-black mb-4 uppercase">COMBO ESPECIAL</h3>
-        <div className="text-5xl font-black text-yellow-400 mb-8">R$ 57,90</div>
-        <Button featured className="w-full">GARANTIR COMBO</Button>
-      </Card>
+      </Button>
     </div>
   </section>
 );
@@ -263,20 +492,30 @@ const Offers = () => (
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const questions = [
-    { q: "O material serve para qualquer faculdade?", a: "Sim! Abordamos os conceitos fundamentais de Direito no Brasil." },
-    { q: "Como recebo o acesso?", a: "Imediatamente após a confirmação do pagamento no seu e-mail." }
+    { q: "O material serve para qualquer faculdade?", a: "Sim! Abordamos os conceitos fundamentais que são base de todas as grades curriculares de Direito no Brasil." },
+    { q: "Como recebo o acesso?", a: "Imediatamente após a confirmação do pagamento, você recebe um e-mail com os links para download." },
+    { q: "Posso imprimir os E-books?", a: "Com certeza! Os materiais são entregues em PDF de alta qualidade." }
   ];
+
   return (
     <section className="py-24 px-4 bg-black">
       <div className="container mx-auto max-w-3xl">
         <SectionTitle title="Dúvidas Frequentes" />
         <div className="space-y-4">
           {questions.map((item, i) => (
-            <div key={i} className="rounded-2xl bg-zinc-900 border border-white/5">
-              <button onClick={() => setOpenIndex(openIndex === i ? null : i)} className="w-full p-6 text-left flex justify-between font-black uppercase text-xs text-white">
-                {item.q} <ChevronDown className={openIndex === i ? 'rotate-180' : ''}/>
+            <div key={i} className="rounded-2xl bg-zinc-900 border border-white/5 overflow-hidden">
+              <button 
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full p-6 text-left flex items-center justify-between font-black uppercase text-sm text-white"
+              >
+                {item.q}
+                <ChevronDown size={20} className={`transition-transform ${openIndex === i ? 'rotate-180' : ''}`} />
               </button>
-              {openIndex === i && <div className="px-6 pb-6 text-zinc-400 italic text-sm">{item.a}</div>}
+              {openIndex === i && (
+                <div className="px-6 pb-6 text-zinc-400 italic font-medium">
+                  {item.a}
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -285,21 +524,43 @@ const FAQ = () => {
   );
 };
 
+const Biography = () => (
+  <section className="py-24 px-4 bg-zinc-950">
+    <div className="container mx-auto max-w-4xl bg-zinc-900 rounded-[3rem] p-12 border border-white/10 text-center">
+      <div className="w-32 h-32 bg-zinc-800 rounded-full mx-auto mb-8 border-4 border-red-600 overflow-hidden shadow-2xl">
+        <img src="https://picsum.photos/seed/legal/400/400" alt="Natan Campos" className="w-full h-full object-cover" />
+      </div>
+      <h2 className="text-4xl font-black uppercase mb-4 text-white">Opa! Muito prazer 👋</h2>
+      <p className="text-zinc-400 text-lg font-bold italic leading-relaxed max-w-2xl mx-auto">
+        Me chamo <span className="text-white">Natan Campos</span>. Estou no 6º período de Direito e ajudo calouros a entenderem a base do Direito de forma clara e organizada.
+      </p>
+      <div className="mt-8 flex justify-center gap-6 text-zinc-500 uppercase font-black text-[10px] tracking-[0.2em]">
+        <span>7 Dias de Garantia</span>
+        <span>Compra Segura</span>
+        <Instagram size={16} className="text-red-600" />
+      </div>
+    </div>
+  </section>
+);
+
 export default function App() {
   return (
-    <main className="bg-black min-h-screen text-white">
+    <main className="bg-black min-h-screen text-white selection:bg-red-600">
       <Hero />
       <Solution />
       <ScrollingPhotos />
       <TargetAudience />
       <ExclusiveBonus />
       <Testimonials />
-      <QuickSummary /> 
       <Offers />
       <FAQ />
-      <footer className="py-12 border-t border-white/5 text-center text-[10px] font-black uppercase text-zinc-700">
+      <Biography />
+      <footer className="py-12 border-t border-white/5 text-center text-[10px] font-black uppercase text-zinc-700 tracking-widest">
         © 2026 DIREITO SIMPLIFICADO
       </footer>
+      <motion.div initial={{ y: 100 }} animate={{ y: 0 }} className="fixed bottom-6 left-6 right-6 z-50 md:hidden">
+        <Button featured className="w-full py-6 text-xl">GARANTIR COMBO AGORA</Button>
+      </motion.div>
     </main>
   );
 }
