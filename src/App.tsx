@@ -193,22 +193,45 @@ const Solution = () => {
   );
 };
 
-const ScrollingPhotos = () => (
-  <div className="w-full py-20 overflow-hidden bg-black border-b border-white/5">
-    <div className="flex animate-scroll whitespace-nowrap gap-8">
-      {[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map((num, i) => (
-        <div key={i} className="flex-shrink-0 flex flex-col items-center">
-          <span className="text-red-500 font-black mb-4 uppercase text-[10px] tracking-[0.2em]">
-            Simulado de Prova
-          </span>
-          <div className="w-64 h-80 bg-zinc-900 rounded-2xl overflow-hidden border border-white/10 shadow-xl transition-transform hover:scale-105 duration-500">
-            <img src={`/foto${num}.png`} alt="Review" className="w-full h-full object-cover" />
+const ScrollingPhotos = () => {
+  // Lista de títulos dinâmicos para cada imagem
+  const photoData = [
+    { id: 1, title: "Simulado de Prova" },
+    { id: 2, title: "Questões Comentadas" },
+    { id: 3, title: "Esquemas Práticos" },
+    { id: 4, title: "Resumos de Aula" },
+    { id: 5, title: "Dicas de Estudo" },
+    { id: 6, title: "Base do Direito" },
+  ];
+
+  // Duplicamos a lista para o scroll ser infinito e fluido
+  const displayPhotos = [...photoData, ...photoData];
+
+  return (
+    <div className="w-full py-20 overflow-hidden bg-black border-b border-white/5">
+      <div className="flex animate-scroll gap-8">
+        {displayPhotos.map((item, i) => (
+          <div key={i} className="flex-shrink-0 flex flex-col items-center w-64">
+            <span className="text-red-500 font-black mb-4 uppercase text-[10px] tracking-[0.2em] text-center">
+              {item.title}
+            </span>
+            <div className="w-full h-80 bg-zinc-900 rounded-2xl overflow-hidden border border-white/10 shadow-xl transition-transform hover:scale-105 duration-500 group">
+              <img 
+                src={`/foto${item.id}.png`} 
+                alt={item.title} 
+                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                onError={(e) => {
+                  // Caso a imagem não carregue, mostra um fundo cinza com o título
+                  e.currentTarget.src = "https://via.placeholder.com/256x320/18181b/ffffff?text=Carregando...";
+                }}
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const TargetAudience = () => (
   <section className="py-24 px-4 flex flex-col items-center bg-black">
@@ -597,8 +620,10 @@ const Biography = () => (
           <div className="relative">
             <div className="absolute inset-0 bg-red-600 blur-2xl opacity-20 rounded-full"></div>
             <div className="w-32 h-32 md:w-44 md:h-44 rounded-full border-2 border-red-600 p-1 relative z-10">
-              <img = "perfil.png"
-                className="w-full h-full rounded-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+              <img 
+              src="/perfil.png" // <--- Mude para o nome exato do seu arquivo (ex: natan.jpg)
+              alt="Natan Campos"
+              classnName="w-full h-full rounded-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
               />
             </div>
           </div>
