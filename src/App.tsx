@@ -96,19 +96,29 @@ const Hero = () => (
 const Solution = () => {
   const [activeTab, setActiveTab] = useState(1);
 
-  const features = {
-    1: [
-      "Sequência lógica sem complicação.",
-      "Clareza e segurança total.",
-      "Esquemas Simplificados.",
-      "Plano de Estudo incluso."
-    ],
-    2: [
-      "Exemplos Práticos",
-      "Associação com o Código",
-      "Espaço para anotações",
-      "Simulado de prova no final"
-    ]
+  const content = {
+    1: {
+      image: "/ebook1.png",
+      video: "LINK_DO_VIDEO_1",
+      features: [
+        "Sequência lógica sem complicação.",
+        "Exemplos Práticos",
+        "Associação com o Código",
+        "Clareza e segurança total."
+      ]
+    },
+    2: {
+      image: "/ebook2.png",
+      video: "LINK_DO_VIDEO_2",
+      features: [
+        "Esquemas Simplificados",
+        "Exemplos Práticos",
+        "Associação com o Código",
+        "Espaço para anotações",
+        "Plano de Estudo incluso",
+        "Simulado de prova no final de cada disciplina"
+      ]
+    }
   };
 
   return (
@@ -134,22 +144,22 @@ const Solution = () => {
           </button>
         </div>
 
-        {/* MÍDIA LADO A LADO (MESMO NO CELULAR) */}
-        <div className="grid grid-cols-2 gap-3 w-full mb-10 items-start">
-          {/* Lado Esquerdo: Capa */}
-          <div className="relative group">
+        {/* MÍDIA ALINHADA (Mesmo Tamanho) */}
+        <div className="grid grid-cols-2 gap-4 w-full mb-10 items-center">
+          {/* Capa do Ebook */}
+          <div className="relative">
              <div className="absolute inset-0 bg-brand-red/10 blur-2xl rounded-full"></div>
              <img 
-               src={activeTab === 1 ? "/ebook1.png" : "/ebook2.png"} 
+               src={content[activeTab].image} 
                alt="Capa Ebook" 
                className="w-full aspect-[3/4] object-cover rounded-lg border border-white/10 shadow-2xl relative z-10"
              />
           </div>
 
-          {/* Lado Direito: Vídeo Retrato */}
-          <div className="relative w-full aspect-[9/16] bg-zinc-900 rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+          {/* Vídeo (Forçado a ter a mesma proporção 3/4 da capa) */}
+          <div className="relative w-full aspect-[3/4] bg-zinc-900 rounded-lg overflow-hidden border border-white/10 shadow-2xl">
              <iframe 
-               src={activeTab === 1 ? "LINK_DO_VIDEO_1" : "LINK_DO_VIDEO_2"}
+               src={content[activeTab].video}
                className="w-full h-full object-cover"
                allowFullScreen
                title="Demonstração"
@@ -157,15 +167,15 @@ const Solution = () => {
           </div>
         </div>
 
-        {/* BENEFÍCIOS LADO A LADO (2 COLUNAS NO MOBILE) */}
-        <div className="grid grid-cols-2 gap-2 w-full">
-          {(activeTab === 1 ? features[1] : features[2]).map((item, index) => (
+        {/* BENEFÍCIOS ATUALIZADOS */}
+        <div className="grid grid-cols-2 gap-3 w-full">
+          {content[activeTab].features.map((item, index) => (
             <div 
               key={index} 
-              className="flex flex-col gap-2 bg-zinc-900/40 p-3 rounded-lg border border-white/5"
+              className="flex flex-col gap-2 bg-zinc-900/40 p-4 rounded-lg border border-white/5 min-h-[80px] justify-center"
             >
-              <CheckCircle2 size={14} className="text-brand-red shrink-0" />
-              <p className="text-[10px] font-bold text-zinc-300 uppercase tracking-tighter leading-tight">
+              <CheckCircle2 size={16} className="text-brand-red shrink-0" />
+              <p className="text-[11px] font-bold text-zinc-200 uppercase tracking-tight leading-tight">
                 {item}
               </p>
             </div>
@@ -173,7 +183,7 @@ const Solution = () => {
         </div>
 
         <Button featured={true} className="w-full mt-10 py-5 text-sm">
-          GARANTIR ACESSO COMPLETO
+          GARANTIR COMBO COMPLETO
         </Button>
       </div>
     </section>
