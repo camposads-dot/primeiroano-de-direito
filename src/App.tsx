@@ -423,7 +423,7 @@ const Offers = () => (
             {[
               "Introdução ao Estudo do Direito",
               "Ciências Políticas, Estado e Constituição",
-              "Criminologia, Antropologia, Histótia do Direito",
+              "Criminologia, Antropologia, História do Direito",
               "+ 2 Bônus Exclusivos"
             ].map((item, i) => (
               <li key={i} className="flex gap-3 items-center text-zinc-300 font-bold text-xs uppercase tracking-tight">
@@ -498,6 +498,60 @@ const QuickSummary = () => (
   </section>
 );
 
+const Guarantee = () => (
+  <section className="py-24 px-6 bg-black text-white text-center border-t border-white/5">
+    <div className="container mx-auto max-w-2xl">
+      {/* Ícone de Escudo Vermelho */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        className="w-24 h-24 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-[0_0_50px_rgba(220,38,38,0.3)]"
+      >
+        <svg 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2.5" 
+          className="w-12 h-12 text-white"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </motion.div>
+
+      <h2 className="text-4xl md:text-5xl font-black uppercase mb-4 leading-none tracking-tighter">
+        RISCO ZERO: <br/>
+        <span className="text-white">GARANTIA INCONDICIONAL</span>
+      </h2>
+
+      <p className="text-zinc-400 text-lg md:text-xl font-medium leading-relaxed mb-12 italic">
+        Experimente o método por 7 dias. Se você não sentir clareza, segurança ou vantagem competitiva em seus estudos, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.
+      </p>
+
+      {/* Selos de Confiança */}
+      <div className="space-y-4 mb-12">
+        <div className="flex items-center justify-center gap-3 text-zinc-500 uppercase text-[10px] font-black tracking-widest">
+          <svg size={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-4 h-4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Pagamento Seguro
+        </div>
+        <div className="flex items-center justify-center gap-3 text-zinc-500 uppercase text-[10px] font-black tracking-widest">
+          <svg size={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-4 h-4"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Acesso Instantâneo
+        </div>
+        <div className="flex items-center justify-center gap-3 text-zinc-500 uppercase text-[10px] font-black tracking-widest">
+          <ArrowRight size={14} strokeWidth={3} />
+          Satisfação Garantida
+        </div>
+      </div>
+
+      <Button featured className="w-full py-6 text-xl">
+        QUERO O COMBO COMPLETO
+      </Button>
+    </div>
+  </section>
+);
+
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const questions = [
@@ -563,6 +617,7 @@ export default function App() {
       <Testimonials />
       <Offers />
       <QuickSummary />
+      <Guarantee />
       <FAQ />
       <Biography />
       <footer className="py-12 border-t border-white/5 text-center text-[10px] font-black uppercase text-zinc-700 tracking-widest">
