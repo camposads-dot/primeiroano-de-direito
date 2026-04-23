@@ -541,7 +541,9 @@ const QuickSummary = () => (
         </div>
         <p className="text-base font-medium text-zinc-500">Garante hoje <span className="text-white font-black">85% de desconto</span> + bônus. <br/>Pagamento único e 7 dias de garantia.</p>
       </div>
-      <button className="w-full mt-10 py-6 bg-red-600 hover:bg-red-700 text-white font-black text-xl rounded-2xl uppercase transition-all">OK, ME CONVENCEU!</button>
+      <Button featured className="w-full mt-8">
+    OK, ME CONVENCEU!
+  </Button>
     </div>
   </section>
 );
