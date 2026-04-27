@@ -729,9 +729,6 @@ export default function App() {
       <footer className="py-12 border-t border-white/5 text-center text-[10px] font-black uppercase text-zinc-700 tracking-widest">
         © 2026 DIREITO SIMPLIFICADO
       </footer>
-      <motion.div initial={{ y: 100 }} animate={{ y: 0 }} className="fixed bottom-6 left-6 right-6 z-50 md:hidden">
-        <Button featured className="w-full py-6 text-xl">GARANTIR COMBO AGORA</Button>
-      </motion.div>
     </main>
   );
 }
