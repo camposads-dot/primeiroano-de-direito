@@ -128,7 +128,7 @@ const Hero = () => (
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-400"></span>
               </span>
               <span className="text-xs font-black uppercase tracking-widest text-yellow-400">
-                Assista ao vídeo e veja como funciona
+                Assista ao vídeo e entenda como funciona
               </span>
             </div>
           </div>
