@@ -112,7 +112,7 @@ const Hero = () => (
   {/* BOTÃO */}
   <Button className="w-full py-5 text-lg font-bold bg-red-600 rounded-xl
                      lg:w-fit lg:px-10 lg:py-5">
-    QUERO MEU ACESSO →
+    QUERO MEU ACESSO
   </Button>
 
 </div>
