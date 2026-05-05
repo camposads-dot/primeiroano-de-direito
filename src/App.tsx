@@ -73,7 +73,14 @@ const Card = ({ children, className = '', featured = false }: any) => (
 const Hero = () => (
   <section className="relative min-h-screen flex flex-col bg-black text-white overflow-hidden">
     <header className="h-12 border-b border-white/5 flex items-center px-4 md:px-8 justify-between bg-zinc-950">
-<div className="space-y-8 text-center lg:text-left">
+      {/* Aqui você pode manter os links ou o logo do seu header */}
+    </header>
+    
+    <div className="container mx-auto px-4 md:px-8 py-16 flex-1 flex items-center">
+      <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+        
+        {/* Coluna da Esquerda: Textos e Botão */}
+        <div className="space-y-8 text-center lg:text-left">
           {/* Novo Título Chamativo para Desktop */}
           <div className="hidden lg:flex items-center gap-3 bg-zinc-900/40 border border-yellow-400/20 px-5 py-3 rounded-xl max-w-md mx-auto lg:mx-0 backdrop-blur-sm">
             <span className="flex h-3 w-3 relative">
@@ -102,11 +109,12 @@ const Hero = () => (
             👇 Assista ao vídeo abaixo para entender
           </div>
         </div>
-        </div>
-        </div>
+
+        {/* Coluna da Direita: Vídeo */}
         <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">
           <iframe className="w-full h-full" src="https://www.youtube.com/embed/PbOzmQFBgU8" frameBorder="0" allowFullScreen title="Video"></iframe>
         </div>
+
       </div>
     </div>
   </section>
