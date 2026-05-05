@@ -79,10 +79,10 @@ const Hero = () => (
     <div className="container mx-auto px-4 md:px-8 py-16 flex-1 flex items-center">
       <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
         
-        {/* Coluna da Esquerda: Textos e Botão */}
+        {/* Coluna da Esquerda: Textos, Oferta e Botão */}
         <div className="space-y-8 text-center lg:text-left">
-          {/* Novo Título Chamativo para Desktop */}
-          <div className="hidden lg:flex items-center gap-3 bg-zinc-900/40 border border-yellow-400/20 px-5 py-3 rounded-xl max-w-md mx-auto lg:mx-0 backdrop-blur-sm">
+          {/* Título Chamativo (Visível tanto no Desktop quanto no Mobile) */}
+          <div className="flex items-center gap-3 bg-zinc-900/40 border border-yellow-400/20 px-5 py-3 rounded-xl max-w-md mx-auto lg:mx-0 backdrop-blur-sm">
             <span className="flex h-3 w-3 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-400"></span>
@@ -99,19 +99,20 @@ const Hero = () => (
           <p className="text-zinc-400 text-xl font-bold max-w-lg mx-auto lg:mx-0 italic">
             "Entenda o 1° Ano com o método aprovado por +400 calouros. Direto e sem confusão."
           </p>
+
+          {/* Mensagem da oferta restaurada */}
+          <div className="text-zinc-500 text-sm font-semibold max-w-lg mx-auto lg:mx-0">
+            Garante hoje <span className="text-white font-black">85% de desconto</span> + bônus. <br />
+            Pagamento único e 7 dias de garantia.
+          </div>
           
           <Button featured className="w-full sm:w-fit px-12 py-6 text-xl mx-auto lg:mx-0">
             QUERO MEU ACESSO <ArrowRight size={20} />
           </Button>
-
-          {/* Texto otimizado para o celular (aparece apenas em telas pequenas) */}
-          <div className="pt-2 text-center lg:hidden text-zinc-500 text-xs font-bold uppercase tracking-wider">
-            👇 Assista ao vídeo abaixo para entender
-          </div>
         </div>
 
-        {/* Coluna da Direita: Vídeo */}
-        <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">
+        {/* Coluna da Direita: Vídeo com alinhamento rebaixado/ajustado */}
+        <div className="pt-6 lg:pt-12 relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">
           <iframe className="w-full h-full" src="https://www.youtube.com/embed/PbOzmQFBgU8" frameBorder="0" allowFullScreen title="Video"></iframe>
         </div>
 
