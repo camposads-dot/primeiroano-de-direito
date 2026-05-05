@@ -93,10 +93,12 @@ const Hero = () => (
           <Button featured className="w-full sm:w-fit px-12 py-6 text-xl mx-auto lg:mx-0">
             QUERO MEU ACESSO <ArrowRight size={20} />
           </Button>
-          <div className="flex items-center justify-center lg:justify-start gap-4 pt-4">
-             <div className="text-zinc-500 line-through text-sm font-bold">R$ 157,90</div>
-             <div className="text-2xl font-black text-red-500">COMBO: R$ 57,90</div>
-          </div>
+          {/* Substitua o bloco antigo por este: */}
+<div className="pt-5 text-center lg:text-left">
+  <span className="text-base font-bold tracking-tight text-zinc-400">
+    👇 Assista ao vídeo e entenda como funciona
+  </span>
+</div>
         </div>
         <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">
           <iframe className="w-full h-full" src="https://www.youtube.com/embed/PbOzmQFBgU8" frameBorder="0" allowFullScreen title="Video"></iframe>
