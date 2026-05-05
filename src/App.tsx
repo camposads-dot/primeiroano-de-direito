@@ -73,25 +73,47 @@ const Card = ({ children, className = '', featured = false }: any) => (
 const Hero = () => (
   <section className="relative min-h-screen flex flex-col bg-black text-white overflow-hidden">
     
-    <header className="h-12 border-b border-white/5 flex items-center px-4 md:px-8 justify-between bg-zinc-950">
-      {/* Header */}
-    </header>
-    
-    {/* Faixa de oferta */}
+    {/* Header */}
+    <header className="h-12 border-b border-white/5 flex items-center px-4 md:px-8 justify-between bg-zinc-950" />
+
+    {/* Faixa topo */}
     <div className="w-full bg-zinc-950 border-b border-zinc-900 py-3 text-center text-red-500 font-bold text-sm uppercase tracking-wider">
       Garanta hoje seu combo de estudo exclusivo com 85% de desconto + 04 bônus
     </div>
 
-    <div className="container mx-auto px-4 md:px-8 py-12 flex-1 flex items-center">
+    <div className="container mx-auto px-4 md:px-8 pt-10 pb-16 flex-1 flex items-start">
       
-      <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+      <div className="grid lg:grid-cols-2 gap-12 items-start w-full">
 
-        {/* TEXTO */}
-        <div className="space-y-6 text-center lg:text-left order-1 max-w-xl mx-auto lg:mx-0">
+        {/* ESQUERDA (TEXTO) */}
+        <div className="space-y-6 order-1 max-w-xl">
           
-          {/* Badge */}
-          <div className="flex justify-center lg:justify-start">
-            <div className="flex items-center gap-3 bg-zinc-900/40 border border-yellow-400/20 px-5 py-3 rounded-xl backdrop-blur-sm">
+          <h1 className="text-5xl md:text-7xl lg:text-[96px] font-black leading-[0.9] tracking-tighter uppercase">
+            PARE DE SE <br />
+            <span className="text-red-600">PERDER</span> <br />
+            NO DIREITO.
+          </h1>
+          
+          <p className="text-zinc-400 text-lg md:text-xl font-bold italic">
+            "Entenda o 1° Ano com o método aprovado por +400 calouros. Direto e sem confusão."
+          </p>
+
+          <div className="text-zinc-500 text-sm font-semibold">
+            Garanta hoje <span className="text-white font-black">85% de desconto</span> + bônus. <br />
+            Pagamento único e 7 dias de garantia.
+          </div>
+          
+          <Button className="w-full sm:w-fit px-10 py-5 text-lg">
+            QUERO MEU ACESSO <ArrowRight size={20} />
+          </Button>
+        </div>
+
+        {/* DIREITA (BADGE + VÍDEO) */}
+        <div className="order-2 flex flex-col gap-4">
+
+          {/* BADGE AGORA NO LUGAR CERTO */}
+          <div className="flex">
+            <div className="flex items-center gap-3 bg-zinc-900 border border-yellow-400/30 px-5 py-3 rounded-xl">
               <span className="flex h-3 w-3 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-400"></span>
@@ -102,39 +124,17 @@ const Hero = () => (
             </div>
           </div>
 
-          {/* Título */}
-          <h1 className="text-4xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter uppercase">
-            PARE DE SE <br />
-            <span className="text-red-600">PERDER</span> <br />
-            NO DIREITO.
-          </h1>
-          
-          {/* Subtítulo */}
-          <p className="text-zinc-400 text-lg md:text-xl font-bold italic">
-            "Entenda o 1° Ano com o método aprovado por +400 calouros. Direto e sem confusão."
-          </p>
-
-          {/* Garantia */}
-          <div className="text-zinc-500 text-sm font-semibold">
-            Garanta hoje <span className="text-white font-black">85% de desconto</span> + bônus. <br />
-            Pagamento único e 7 dias de garantia.
+          {/* VÍDEO */}
+          <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/PbOzmQFBgU8"
+              frameBorder="0"
+              allowFullScreen
+              title="Video"
+            ></iframe>
           </div>
-          
-          {/* Botão */}
-          <Button featured className="w-full sm:w-fit px-10 py-5 text-lg mx-auto lg:mx-0">
-            QUERO MEU ACESSO <ArrowRight size={20} />
-          </Button>
-        </div>
 
-        {/* VÍDEO */}
-        <div className="order-2 pt-4 lg:pt-12 relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/PbOzmQFBgU8"
-            frameBorder="0"
-            allowFullScreen
-            title="Video"
-          ></iframe>
         </div>
 
       </div>
