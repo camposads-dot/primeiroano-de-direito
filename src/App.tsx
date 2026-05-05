@@ -73,27 +73,7 @@ const Card = ({ children, className = '', featured = false }: any) => (
 const Hero = () => (
   <section className="relative min-h-screen flex flex-col bg-black text-white overflow-hidden">
     <header className="h-12 border-b border-white/5 flex items-center px-4 md:px-8 justify-between bg-zinc-950">
-      <div className="flex items-center gap-3">
-        <div className="w-2 h-2 bg-red-600 rounded-full animate-ping"></div>
-        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-red-500">
-          Oferta por Tempo Limitado: 85% OFF
-        </span>
-      </div>
-    </header>
-
-    <div className="flex-1 flex items-center px-6 py-12">
-      <div className="container mx-auto max-w-7xl grid lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8 text-center lg:text-left">
-          <h1 className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase">
-            PARE DE SE <br/> <span className="text-red-600">PERDER</span> <br/> NO DIREITO.
-          </h1>
-          <p className="text-zinc-400 text-xl font-bold max-w-lg mx-auto lg:mx-0 italic">
-            "Entenda o 1° Ano com o método aprovado por +400 calouros. Direto e sem confusão."
-          </p>
-          <Button featured className="w-full sm:w-fit px-12 py-6 text-xl mx-auto lg:mx-0">
-            QUERO MEU ACESSO <ArrowRight size={20} />
-          </Button>
-          <div className="space-y-8 text-center lg:text-left">
+<div className="space-y-8 text-center lg:text-left">
           {/* Novo Título Chamativo para Desktop */}
           <div className="hidden lg:flex items-center gap-3 bg-zinc-900/40 border border-yellow-400/20 px-5 py-3 rounded-xl max-w-md mx-auto lg:mx-0 backdrop-blur-sm">
             <span className="flex h-3 w-3 relative">
@@ -121,6 +101,7 @@ const Hero = () => (
           <div className="pt-2 text-center lg:hidden text-zinc-500 text-xs font-bold uppercase tracking-wider">
             👇 Assista ao vídeo abaixo para entender
           </div>
+        </div>
         </div>
         </div>
         <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">
