@@ -86,30 +86,35 @@ const Hero = () => (
       <div className="grid lg:grid-cols-2 gap-12 items-start w-full">
 
         {/* ESQUERDA (TEXTO) */}
-        <div className="space-y-6 order-1 max-w-xl mx-auto text-center px-2">
-  
+        <div className="space-y-6 order-1 max-w-xl mx-auto text-center px-2
+                lg:text-left lg:mx-0">
+
   {/* TÍTULO */}
-  <h1 className="text-4xl leading-[1] font-black tracking-tight uppercase">
+  <h1 className="text-4xl leading-[1] font-black tracking-tight uppercase
+                 md:text-7xl lg:text-[96px] lg:leading-[0.9]">
     PARE DE SE <br />
     <span className="text-red-600">PERDER</span> <br />
     NO DIREITO.
   </h1>
   
   {/* SUBTÍTULO */}
-  <p className="text-zinc-400 text-base font-semibold italic leading-relaxed">
+  <p className="text-zinc-400 text-base font-semibold italic leading-relaxed
+                md:text-xl lg:text-lg">
     Entenda o 1° ano com o método aprovado por +400 calouros. Direto e sem confusão.
   </p>
 
   {/* GARANTIA */}
   <div className="text-zinc-500 text-sm">
-    Garanta hoje seu  <span className="text-white font-bold">combo de estudo com 85% de desconto</span> +  04 bônus. <br />
+    Garanta hoje <span className="text-white font-bold">85% de desconto</span> + bônus. <br />
     Pagamento único e 7 dias de garantia.
   </div>
   
-  {/* CTA */}
-  <Button className="w-full py-5 text-lg font-bold bg-red-600 hover:bg-red-700 rounded-xl shadow-[0_0_25px_rgba(255,0,0,0.4)]">
+  {/* BOTÃO */}
+  <Button className="w-full py-5 text-lg font-bold bg-red-600 rounded-xl
+                     lg:w-fit lg:px-10 lg:py-5">
     QUERO MEU ACESSO →
   </Button>
+
 </div>
 
         {/* DIREITA (BADGE + VÍDEO) */}
