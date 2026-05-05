@@ -90,12 +90,12 @@ const Hero = () => (
                 lg:text-left lg:mx-0">
 
   {/* TÍTULO */}
-  <h1 className="text-4xl leading-[1] font-black tracking-tight uppercase
-                 md:text-7xl lg:text-[96px] lg:leading-[0.9]">
-    PARE DE SE <br />
-    <span className="text-red-600">PERDER</span> <br />
-    NO DIREITO.
-  </h1>
+  <h1 className="text-5xl leading-[0.95] font-black tracking-tight uppercase
+               sm:text-6xl md:text-7xl lg:text-[96px] lg:leading-[0.9]">
+  PARE DE SE <br />
+  <span className="text-red-600">PERDER</span> <br />
+  NO DIREITO.
+</h1>
   
   {/* SUBTÍTULO */}
   <p className="text-zinc-400 text-base font-semibold italic leading-relaxed
@@ -105,7 +105,7 @@ const Hero = () => (
 
   {/* GARANTIA */}
   <div className="text-zinc-500 text-sm">
-    Garanta hoje <span className="text-white font-bold">85% de desconto</span> + bônus. <br />
+    Garanta hoje seu <span className="text-white font-bold">combo com 85% de desconto</span> + 04 bônus. <br />
     Pagamento único e 7 dias de garantia.
   </div>
   
