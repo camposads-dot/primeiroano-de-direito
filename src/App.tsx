@@ -93,12 +93,35 @@ const Hero = () => (
           <Button featured className="w-full sm:w-fit px-12 py-6 text-xl mx-auto lg:mx-0">
             QUERO MEU ACESSO <ArrowRight size={20} />
           </Button>
-          {/* Substitua o bloco antigo por este: */}
-<div className="pt-5 text-center lg:text-left">
-  <span className="text-base font-bold tracking-tight text-zinc-400">
-    👇 Assista ao vídeo e entenda como funciona
-  </span>
-</div>
+          <div className="space-y-8 text-center lg:text-left">
+          {/* Novo Título Chamativo para Desktop */}
+          <div className="hidden lg:flex items-center gap-3 bg-zinc-900/40 border border-yellow-400/20 px-5 py-3 rounded-xl max-w-md mx-auto lg:mx-0 backdrop-blur-sm">
+            <span className="flex h-3 w-3 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-400"></span>
+            </span>
+            <span className="text-xs font-black uppercase tracking-widest text-yellow-400">
+              Assista ao vídeo e veja como funciona
+            </span>
+          </div>
+
+          <h1 className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase">
+            PARE DE SE <br/> <span className="text-red-600">PERDER</span> <br/> NO DIREITO.
+          </h1>
+          
+          <p className="text-zinc-400 text-xl font-bold max-w-lg mx-auto lg:mx-0 italic">
+            "Entenda o 1° Ano com o método aprovado por +400 calouros. Direto e sem confusão."
+          </p>
+          
+          <Button featured className="w-full sm:w-fit px-12 py-6 text-xl mx-auto lg:mx-0">
+            QUERO MEU ACESSO <ArrowRight size={20} />
+          </Button>
+
+          {/* Texto otimizado para o celular (aparece apenas em telas pequenas) */}
+          <div className="pt-2 text-center lg:hidden text-zinc-500 text-xs font-bold uppercase tracking-wider">
+            👇 Assista ao vídeo abaixo para entender
+          </div>
+        </div>
         </div>
         <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">
           <iframe className="w-full h-full" src="https://www.youtube.com/embed/PbOzmQFBgU8" frameBorder="0" allowFullScreen title="Video"></iframe>
