@@ -86,27 +86,31 @@ const Hero = () => (
       <div className="grid lg:grid-cols-2 gap-12 items-start w-full">
 
         {/* ESQUERDA (TEXTO) */}
-        <div className="space-y-6 order-1 max-w-xl">
-          
-          <h1 className="text-5xl md:text-7xl lg:text-[96px] font-black leading-[0.9] tracking-tighter uppercase">
-            PARE DE SE <br />
-            <span className="text-red-600">PERDER</span> <br />
-            NO DIREITO.
-          </h1>
-          
-          <p className="text-zinc-400 text-lg md:text-xl font-bold italic">
-            "Entenda o 1° Ano com o método aprovado por +400 calouros. Direto e sem confusão."
-          </p>
+        <div className="space-y-6 order-1 max-w-xl mx-auto text-center px-2">
+  
+  {/* TÍTULO */}
+  <h1 className="text-4xl leading-[1] font-black tracking-tight uppercase">
+    PARE DE SE <br />
+    <span className="text-red-600">PERDER</span> <br />
+    NO DIREITO.
+  </h1>
+  
+  {/* SUBTÍTULO */}
+  <p className="text-zinc-400 text-base font-semibold italic leading-relaxed">
+    Entenda o 1° ano com o método aprovado por +400 calouros. Direto e sem confusão.
+  </p>
 
-          <div className="text-zinc-500 text-sm font-semibold">
-            Garanta hoje <span className="text-white font-black">85% de desconto</span> + bônus. <br />
-            Pagamento único e 7 dias de garantia.
-          </div>
-          
-          <Button className="w-full sm:w-fit px-10 py-5 text-lg">
-            QUERO MEU ACESSO <ArrowRight size={20} />
-          </Button>
-        </div>
+  {/* GARANTIA */}
+  <div className="text-zinc-500 text-sm">
+    Garanta hoje seu  <span className="text-white font-bold">combo de estudo com 85% de desconto</span> +  04 bônus. <br />
+    Pagamento único e 7 dias de garantia.
+  </div>
+  
+  {/* CTA */}
+  <Button className="w-full py-5 text-lg font-bold bg-red-600 hover:bg-red-700 rounded-xl shadow-[0_0_25px_rgba(255,0,0,0.4)]">
+    QUERO MEU ACESSO →
+  </Button>
+</div>
 
         {/* DIREITA (BADGE + VÍDEO) */}
         <div className="order-2 flex flex-col gap-4">
