@@ -151,6 +151,42 @@ const Hero = () => (
   </section>
 );
 
+const Feedbacks = () => {
+  return (
+    <section className="w-full py-20 border-t border-white/10 bg-black overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6">
+
+        <h2 className="text-4xl md:text-6xl font-black italic text-center text-white mb-4">
+          O QUE OS <span className="text-red-500">CALOUROS</span><br />
+          ACHAM DO MATERIAL?
+        </h2>
+
+        <p className="text-center text-gray-400 mb-12 text-lg">
+          Veja o feedback de estudantes que já começaram a estudar com o material.
+        </p>
+
+        <div className="flex gap-6 overflow-x-auto scrollbar-hide pb-4">
+
+          {[1,2,3,4,5,6,7].map((item) => (
+            <div
+              key={item}
+              className="min-w-[300px] md:min-w-[350px] bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl"
+            >
+              <img
+                src={`/feedback${item}.png`}
+                alt={`Feedback ${item}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
 const Solution = () => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -761,6 +797,7 @@ export default function App() {
   return (
     <main className="bg-black min-h-screen text-white selection:bg-red-600">
       <Hero />
+      <Feedbacks />
       <Solution />
       <ScrollingPhotos />
       <TargetAudience />
