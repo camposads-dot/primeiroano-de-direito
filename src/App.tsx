@@ -90,13 +90,19 @@ const Hero = () => (
                 lg:text-left lg:mx-0">
 
   {/* TÍTULO */}
-  <h1 className="text-[52px] leading-[0.95] font-black tracking-tight uppercase
-               sm:text-6xl md:text-[72px] lg:text-[78px] xl:text-[88px]
-               lg:leading-[0.9]">
+  <h1 className="
+  font-black uppercase tracking-tight
+  text-[42px] leading-[1]
+  sm:text-[56px]
+  md:text-[64px]
+  lg:text-[72px]
+  xl:text-[78px]
+  max-w-[700px]
+">
   Aprenda o <br />
   <span className="text-red-600">Primeiro Ano </span> <br />
   da Faculdade de Direito em menos de <br />
-  <span className="text-red-600">30 Dias </span> <br />
+  <span className="text-red-600">30 Dias </span>
 </h1>
   
   {/* SUBTÍTULO */}
