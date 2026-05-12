@@ -92,15 +92,16 @@ const Hero = () => (
   {/* TÍTULO */}
   <h1 className="text-5xl leading-[0.95] font-black tracking-tight uppercase
                sm:text-6xl md:text-7xl lg:text-[96px] lg:leading-[0.9]">
-  PARE DE SE <br />
-  <span className="text-red-600">PERDER</span> <br />
-  NO DIREITO.
+  Aprenda o <br />
+  <span className="text-red-600">Primeiro Ano </span> <br />
+  da Faculdade de Direito em menos de <br />
+  <span className="text-red-600">30 Dias </span> <br />
 </h1>
   
   {/* SUBTÍTULO */}
   <p className="text-zinc-400 text-base font-semibold italic leading-relaxed
                 md:text-xl lg:text-lg">
-    Entenda o 1° ano com o método aprovado por +400 calouros. Direto e sem confusão.
+    Um método direto e sem juridiquês para quem quer começar o Direito com clareza, segurança e vantagem. Entenda o 1° ano com o método aprovado por +400 calouros.
   </p>
 
   {/* GARANTIA */}
