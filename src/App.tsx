@@ -90,8 +90,9 @@ const Hero = () => (
                 lg:text-left lg:mx-0">
 
   {/* TÍTULO */}
-  <h1 className="text-5xl leading-[0.95] font-black tracking-tight uppercase
-               sm:text-6xl md:text-7xl lg:text-[96px] lg:leading-[0.9]">
+  <h1 className="text-[46px] leading-[1] font-black tracking-tight uppercase
+               sm:text-[58px] md:text-[72px] lg:text-[78px] xl:text-[88px]
+               lg:leading-[0.9]">
   Aprenda o <br />
   <span className="text-red-600">Primeiro Ano </span> <br />
   da Faculdade de Direito em menos de <br />
